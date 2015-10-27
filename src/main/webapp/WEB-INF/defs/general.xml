@@ -25,5 +25,11 @@
     <put-attribute name="current" value="user-detail"/>
   </definition>
   
+  <definition name="new-article" extends="common">
+    <put-attribute name="title" value="New article" />
+    <put-attribute name="body" value="/WEB-INF/jsp/new-article.jsp" />
+    <put-attribute name="current" value="new-article"/>
+  </definition>
+  
   
 </tiles-definitions>

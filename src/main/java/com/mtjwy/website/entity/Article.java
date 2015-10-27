@@ -23,7 +23,7 @@ public class Article {
 	
 	private String content;
 	
-	@Column(name = "published_date")
+	@Column(name = "publish_date")
 	private Date publishDate;
 	
 	@ManyToOne

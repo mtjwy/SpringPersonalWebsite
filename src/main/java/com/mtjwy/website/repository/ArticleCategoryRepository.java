@@ -11,4 +11,6 @@ public interface ArticleCategoryRepository extends JpaRepository<ArticleCategory
 
 	List<ArticleCategory> findByWebUser(WebUser user);
 
+	ArticleCategory findByName(String name);
+
 }
