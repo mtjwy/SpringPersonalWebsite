@@ -50,5 +50,10 @@ public class WebUserService {
 		return user;
 	}
 
+
+	public void save(WebUser user) {
+		webUserRepository.save(user);	
+	}
+
 	
 }

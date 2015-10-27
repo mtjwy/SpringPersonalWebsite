@@ -40,6 +40,7 @@
 					class="blog-nav-item" href="#">Press</a> 
 				<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a>
 				<a class="blog-nav-item ${current == 'new-article' ? 'active' : '' }" href='<spring:url value="/new-article.html"/>'>Add Article</a> 
+				<a class="blog-nav-item ${current == 'user-register' ? 'active' : '' }" href='<spring:url value="/register.html"/>'>Register</a>
 				<a class="blog-nav-item" href="#">About</a>
 			</nav>
 		</div>

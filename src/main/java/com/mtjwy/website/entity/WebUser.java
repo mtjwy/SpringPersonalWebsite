@@ -21,6 +21,8 @@ public class WebUser {
 	
 	private String password;
 	
+	private String email;
+	
 	@ManyToMany
 	@JoinTable
 	private List<Role> roles;
@@ -66,6 +68,14 @@ public class WebUser {
 
 	public void setArticleCategories(List<ArticleCategory> articleCategories) {
 		this.articleCategories = articleCategories;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	
