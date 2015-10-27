@@ -24,19 +24,23 @@
 	rel="stylesheet">
 <%-- <link href="<c:url value="/css/blog.css" />" rel="stylesheet" > --%>
 
+<%@ taglib uri="http://tiles.apache.org/tags-tiles-extras"
+	prefix="tilesx"%>
+<tilesx:useAttribute name="current" scope="request" />
+
 </head>
 
 <body>
-
+	<tilesx:useAttribute name="current" />
 	<div class="blog-masthead">
 		<div class="container">
 			<nav class="blog-nav">
-				<a class="blog-nav-item active" href="#">Home</a> 
+				<a class="blog-nav-item  ${current == 'index' ? 'active' : '' }" href="/">Home</a> 
 				<a
 					class="blog-nav-item" href="#">New features</a> 
 				<a
 					class="blog-nav-item" href="#">Press</a> 
-				<a class="blog-nav-item" href='<spring:url value="/users.html"/>'>Users</a> 
+				<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a> 
 				<a class="blog-nav-item" href="#">About</a>
 			</nav>
 		</div>
