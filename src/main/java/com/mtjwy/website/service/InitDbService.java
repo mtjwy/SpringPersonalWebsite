@@ -54,6 +54,13 @@ public class InitDbService {
 		userAdmin.setRoles(roles);
 		webUserRepository.save(userAdmin);
 		
+		WebUser mtjwy = new WebUser();
+		mtjwy.setName("mtjwy");
+		roles = new ArrayList<Role>();
+		roles.add(roleUser);
+		mtjwy.setRoles(roles);
+		webUserRepository.save(mtjwy);
+		
 		ArticleCategory articleCategoryJava = new ArticleCategory();
 		articleCategoryJava.setName("java");
 		articleCategoryJava.setWebUser(userAdmin);
