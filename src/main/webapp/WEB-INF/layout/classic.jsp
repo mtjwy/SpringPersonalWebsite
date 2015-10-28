@@ -19,9 +19,12 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
 <!-- Custom styles for this template -->
-<link href="http://getbootstrap.com/examples/blog/blog.css"
-	rel="stylesheet">
-<%-- <link href="<c:url value="/css/blog.css" />" rel="stylesheet" > --%>
+<!-- <link href="http://getbootstrap.com/examples/blog/blog.css" -->
+<!-- 	rel="stylesheet"> -->
+
+<!-- <link rel="stylesheet" type="text/css" href="css/blog.css"/> -->
+<link rel="stylesheet" type="text/css" href="/resources/css/blog.css"/>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -48,24 +51,24 @@
 		<div class="container">
 			<nav class="blog-nav">
 				<a class="blog-nav-item  ${current == 'index' ? 'active' : '' }" href="/">Home</a> 
-				<a
-					class="blog-nav-item" href="#">New features</a> 
-				<a
-					class="blog-nav-item" href="#">Press</a>
-				<security:authorize access="hasRole('ROLE_ADMIN')"> 
-					<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a>
-					<a class="blog-nav-item ${current == 'article-category' ? 'active' : '' }" href='<spring:url value="/article-category.html"/>'>Add Article</a>
-				</security:authorize>
-				 
-				<a class="blog-nav-item ${current == 'user-register' ? 'active' : '' }" href='<spring:url value="/register.html"/>'>Register</a>
+				
+				<a class="blog-nav-item  ${current == 'projects' ? 'active' : '' }" href="/projects.html">Projects</a> 
+				
 				<security:authorize access="! isAuthenticated()">
 					<a class="blog-nav-item ${current == 'login' ? 'active' : '' }" href='<spring:url value="/login.html"/>'>Login</a>
 				</security:authorize>
 				
 				<security:authorize access="isAuthenticated()">
-					<a class="blog-nav-item ${current == 'account-detail' ? 'active' : '' }" href='<spring:url value="/account.html"/>'>My Account</a>
+					<a class="blog-nav-item ${current == 'account-detail' ? 'active' : '' }" href='<spring:url value="/account.html"/>'>My RSS Feed</a>
 					<a class="blog-nav-item " href='<spring:url value="/logout.html"/>'>Logout</a>
 				</security:authorize>
+				<a class="blog-nav-item ${current == 'user-register' ? 'active' : '' }" href='<spring:url value="/register.html"/>'>Register</a>
+				
+				<security:authorize access="hasRole('ROLE_ADMIN')"> 
+					<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a>
+					<a class="blog-nav-item ${current == 'article-category' ? 'active' : '' }" href='<spring:url value="/article-category.html"/>'>Add Article</a>
+				</security:authorize>
+				
 				<a class="blog-nav-item" href="#">About</a>
 			</nav>
 		</div>
