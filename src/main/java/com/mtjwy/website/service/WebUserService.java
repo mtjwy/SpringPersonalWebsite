@@ -12,10 +12,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mtjwy.website.entity.Article;
 import com.mtjwy.website.entity.ArticleCategory;
+import com.mtjwy.website.entity.Blog;
+import com.mtjwy.website.entity.Item;
 import com.mtjwy.website.entity.Role;
 import com.mtjwy.website.entity.WebUser;
 import com.mtjwy.website.repository.ArticleCategoryRepository;
 import com.mtjwy.website.repository.ArticleRepository;
+import com.mtjwy.website.repository.BlogRepository;
+import com.mtjwy.website.repository.ItemRepository;
 import com.mtjwy.website.repository.RoleRepository;
 import com.mtjwy.website.repository.WebUserRepository;
 
@@ -34,6 +38,12 @@ public class WebUserService {
 	
 	@Autowired
 	private RoleRepository roleRepository;
+	
+	@Autowired
+	private BlogRepository blogRepository;
+	
+	@Autowired
+	private ItemRepository itemRepository;
 	
 	
 	public List<WebUser> findAll() {
@@ -69,6 +79,24 @@ public class WebUserService {
 		roles.add(roleRepository.findByName("ROLE_USER"));
 		user.setRoles(roles);
 		webUserRepository.save(user);	
+	}
+
+
+	@Transactional
+	public WebUser findOneWithBlogs(int id) {
+		WebUser user = findOne(id);
+		List<Blog> blogs = blogRepository.findByWebUser(user);
+		for(Blog blog : blogs) {
+			List<Item> items = itemRepository.findByBlog(blog, new PageRequest(0, 10, Direction.DESC, "publishDate"));
+			blog.setItems(items);
+		}
+		user.setBlogs(blogs);
+		return user;
+	}
+	
+	public WebUser findOneWithBlogs(String name) {
+		WebUser user = webUserRepository.findByName(name);
+		return findOneWithBlogs(user.getId());
 	}
 
 	

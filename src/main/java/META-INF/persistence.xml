@@ -5,5 +5,7 @@
 		<class>com.mtjwy.website.entity.Article</class>
 		<class>com.mtjwy.website.entity.ArticleCategory</class>
 		<class>com.mtjwy.website.entity.Role</class>
+		<class>com.mtjwy.website.entity.Blog</class>
+		<class>com.mtjwy.website.entity.Item</class>
 	</persistence-unit>
 </persistence>

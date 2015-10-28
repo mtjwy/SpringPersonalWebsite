@@ -6,4 +6,6 @@ import com.mtjwy.website.entity.WebUser;
 
 public interface WebUserRepository extends JpaRepository<WebUser, Integer>{
 
+	WebUser findByName(String name);
+
 }

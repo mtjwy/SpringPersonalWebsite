@@ -49,6 +49,7 @@
 				</security:authorize>
 				
 				<security:authorize access="isAuthenticated()">
+					<a class="blog-nav-item ${current == 'account-detail' ? 'active' : '' }" href='<spring:url value="/account.html"/>'>My Account</a>
 					<a class="blog-nav-item " href='<spring:url value="/logout.html"/>'>Logout</a>
 				</security:authorize>
 				<a class="blog-nav-item" href="#">About</a>

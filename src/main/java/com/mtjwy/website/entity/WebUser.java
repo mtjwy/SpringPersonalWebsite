@@ -2,13 +2,14 @@ package com.mtjwy.website.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+
+
 
 @Entity
 public class WebUser {
@@ -31,6 +32,26 @@ public class WebUser {
 	private List<ArticleCategory> articleCategories;
 	
 	private boolean enabled;
+	
+	/*
+	 * mappedBy is set to be the User field in Blog entity
+	 * 
+	 * The annotation @JoinColumn indicates that this entity is the owner of the
+	 * relationship (that is: the corresponding table has a column with a
+	 * foreign key to the referenced table), whereas the attribute mappedBy
+	 * indicates that the entity in this side is the inverse of the
+	 * relationship, and the owner resides in the "other" entity.
+	 */
+	@OneToMany(mappedBy = "webUser")
+	private List<Blog> blogs;
+
+	public List<Blog> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(List<Blog> blogs) {
+		this.blogs = blogs;
+	}
 
 	public Integer getId() {
 		return id;

@@ -13,10 +13,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mtjwy.website.entity.Article;
 import com.mtjwy.website.entity.ArticleCategory;
+import com.mtjwy.website.entity.Blog;
+import com.mtjwy.website.entity.Item;
 import com.mtjwy.website.entity.Role;
 import com.mtjwy.website.entity.WebUser;
 import com.mtjwy.website.repository.ArticleCategoryRepository;
 import com.mtjwy.website.repository.ArticleRepository;
+import com.mtjwy.website.repository.BlogRepository;
+import com.mtjwy.website.repository.ItemRepository;
 import com.mtjwy.website.repository.RoleRepository;
 import com.mtjwy.website.repository.WebUserRepository;
 
@@ -35,6 +39,12 @@ public class InitDbService {
 	
 	@Autowired
 	private ArticleRepository articleRepository;
+	
+	@Autowired
+	private BlogRepository blogRepository;
+	
+	@Autowired
+	private ItemRepository itemRepository;
 	
 	@PostConstruct
 	public void init() {
@@ -84,6 +94,26 @@ public class InitDbService {
 		article2.setContent("Java 8 in Action is a clearly written guide to the new features of Java 8. The book covers lambdas, streams, and functional-style programming.");
 		article2.setPublishDate(new Date());
 		articleRepository.save(article2);
+		
+		Blog blogSpring = new Blog();
+		blogSpring.setName("Yahoo!");
+		blogSpring.setUrl("https://yodel.yahoo.com/feed/?format=rss");
+		blogSpring.setWebUser(userAdmin);
+		blogRepository.save(blogSpring);
+		
+		Item item1 = new Item();
+		item1.setBlog(blogSpring);
+		item1.setTitle("first");
+		item1.setLink("https://spring.io/blog");
+		item1.setPublishDate(new Date());
+		itemRepository.save(item1);
+		
+		Item item2 = new Item();
+		item2.setBlog(blogSpring);
+		item2.setTitle("second");
+		item2.setLink("https://spring.io/blog");
+		item2.setPublishDate(new Date());
+		itemRepository.save(item2);
 		
 		
 		

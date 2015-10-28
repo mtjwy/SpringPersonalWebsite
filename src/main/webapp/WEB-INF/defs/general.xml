@@ -37,10 +37,16 @@
     <put-attribute name="current" value="user-register"/>
   </definition>
   
-    <definition name="login" extends="common">
+  <definition name="login" extends="common">
     <put-attribute name="title" value="User login" />
     <put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
     <put-attribute name="current" value="login"/>
+  </definition>
+  
+  <definition name="account-detail" extends="common">
+    <put-attribute name="title" value="Account Detail" />
+    <put-attribute name="body" value="/WEB-INF/jsp/account-detail.jsp" />
+    <put-attribute name="current" value="account-detail"/>
   </definition>
   
   
