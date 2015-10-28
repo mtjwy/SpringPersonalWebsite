@@ -96,24 +96,25 @@ public class InitDbService {
 		articleRepository.save(article2);
 		
 		Blog blogSpring = new Blog();
-		blogSpring.setName("Yahoo!");
-		blogSpring.setUrl("https://yodel.yahoo.com/feed/?format=rss");
+		blogSpring.setName("The Pragmatic Programmer");
+		blogSpring.setUrl("https://pragprog.com/feed/global");
+		
 		blogSpring.setWebUser(userAdmin);
 		blogRepository.save(blogSpring);
 		
-		Item item1 = new Item();
-		item1.setBlog(blogSpring);
-		item1.setTitle("first");
-		item1.setLink("https://spring.io/blog");
-		item1.setPublishDate(new Date());
-		itemRepository.save(item1);
-		
-		Item item2 = new Item();
-		item2.setBlog(blogSpring);
-		item2.setTitle("second");
-		item2.setLink("https://spring.io/blog");
-		item2.setPublishDate(new Date());
-		itemRepository.save(item2);
+//		Item item1 = new Item();
+//		item1.setBlog(blogSpring);
+//		item1.setTitle("first");
+//		item1.setLink("https://spring.io/blog");
+//		item1.setPublishDate(new Date());
+//		itemRepository.save(item1);
+//		
+//		Item item2 = new Item();
+//		item2.setBlog(blogSpring);
+//		item2.setTitle("second");
+//		item2.setLink("https://spring.io/blog");
+//		item2.setPublishDate(new Date());
+//		itemRepository.save(item2);
 		
 		
 		
