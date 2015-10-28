@@ -110,5 +110,12 @@ public class WebUserService {
 		
 	}
 
+
+	public WebUser findOne(String username) {
+		return webUserRepository.findByName(username);
+	}
+	
+	
+
 	
 }
