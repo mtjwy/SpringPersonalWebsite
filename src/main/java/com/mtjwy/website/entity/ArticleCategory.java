@@ -17,6 +17,7 @@ public class ArticleCategory {
 	@GeneratedValue
 	private Integer id;
 	
+	
 	private String name;
 	
 	@ManyToOne
