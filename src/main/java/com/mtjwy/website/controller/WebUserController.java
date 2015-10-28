@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mtjwy.website.entity.ArticleCategory;
 import com.mtjwy.website.entity.Blog;
 import com.mtjwy.website.entity.WebUser;
+import com.mtjwy.website.service.ArticleCategoryService;
 import com.mtjwy.website.service.BlogService;
 import com.mtjwy.website.service.WebUserService;
 
@@ -23,6 +25,9 @@ public class WebUserController {
 	@Autowired
 	private BlogService blogService;
 	
+	@Autowired
+	private ArticleCategoryService articleCategoryService;
+	
 	@ModelAttribute("webuser")//bind the commandName="user" in user-register form to this method
 	public WebUser constructUser() {
 		return new WebUser();
@@ -31,6 +36,11 @@ public class WebUserController {
 	@ModelAttribute("blog")
 	public Blog constructBlog() {
 		return new Blog();
+	}
+	
+	@ModelAttribute("article-category")
+	public ArticleCategory constructArticleCategory() {
+		return new ArticleCategory();
 	}
 	
 	@RequestMapping("/users")
@@ -69,6 +79,20 @@ public class WebUserController {
 		String name = principal.getName();
 		blogService.save(blog, name);
 		return "redirect:/account.html";	
+	}
+	
+	@RequestMapping(value="/article-category", method=RequestMethod.POST)
+	public String doAddArticleCategory(@ModelAttribute("article-category") ArticleCategory ac, Principal principal) {//use principal to get info about which user want to add
+		String name = principal.getName();
+		articleCategoryService.save(ac, name);
+		return "redirect:/article-category.html";	
+	}
+	
+	@RequestMapping(value="/article-category")
+	public String articleCategory(Model model, Principal principal) {
+		String name = principal.getName();
+		model.addAttribute("user", webUserService.findOneWithArticles(name));
+		return "article-category";	
 	}
 	
 	

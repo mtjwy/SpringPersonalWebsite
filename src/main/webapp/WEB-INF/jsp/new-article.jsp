@@ -10,6 +10,7 @@
 </div>
 
 <div class="col-sm-8 blog-main">
+
 <form:form commandName="article" cssClass="form-horizontal">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">Title:</label>

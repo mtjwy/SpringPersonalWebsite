@@ -57,7 +57,7 @@ public class WebUserService {
 
 
 	
-	public Object findOneWithArticles(int id) {
+	public WebUser findOneWithArticles(int id) {
 		WebUser user = findOne(id);
 		List<ArticleCategory> articleCategories= articleCategoryRepository.findByWebUser(user);
 		for(ArticleCategory articleCategory : articleCategories) {
@@ -66,6 +66,11 @@ public class WebUserService {
 		}
 		user.setArticleCategories(articleCategories);
 		return user;
+	}
+	
+	public WebUser findOneWithArticles(String name) {
+		WebUser user = webUserRepository.findByName(name);
+		return findOneWithArticles(user.getId());
 	}
 
 

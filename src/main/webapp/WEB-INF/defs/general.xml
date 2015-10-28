@@ -49,5 +49,11 @@
     <put-attribute name="current" value="account-detail"/>
   </definition>
   
+   <definition name="article-category" extends="common">
+    <put-attribute name="title" value="Article Category" />
+    <put-attribute name="body" value="/WEB-INF/jsp/article-category.jsp" />
+    <put-attribute name="current" value="article-category"/>
+  </definition>
+  
   
 </tiles-definitions>
