@@ -4,8 +4,8 @@
 
 
 <div class="blog-header">
-			<h1 class="blog-title">${user.name}'s RSS Feed</h1>
-			<p class="lead blog-description">Show ${user.name}'s blogs</p>
+			<h1 class="blog-title"><c:out value="${user.name}" />'s RSS Feed</h1>
+			<p class="lead blog-description">Show <c:out value="${user.name}" />'s blogs</p>
 </div>
 
 <div class="col-sm-8 blog-main">
@@ -56,7 +56,7 @@
 <!-- Nav tabs -->
 <ul class="nav nav-tabs" role="tablist">
   	<c:forEach items="${user.blogs}" var="blog">
-  		<li ><a href="#blog_${blog.id}" data-toggle="tab">${blog.name}</a></li>	
+  		<li ><a href="#blog_${blog.id}" data-toggle="tab"><c:out value="${blog.name}" /></a></li>	
   	</c:forEach>
 </ul>
 
@@ -66,10 +66,10 @@
 <c:forEach items="${user.blogs}" var="blog">
 	<div role="tabpanel" class="tab-pane " id="blog_${blog.id}">
 	
-	<h1>${blog.name}</h1>
+	<h1><c:out value="${blog.name}" /></h1>
 	<p>
 	<a href="<spring:url value="/blog/remove/${blog.id}.html" />" class="btn btn-danger triggerRemove">remove blog</a>
-		${blog.url}</p>
+		<c:out value="${blog.url}" /> </p>
 	
 	<table class="table table-bordered table-hover table-striped">
 		<thead>
@@ -81,8 +81,8 @@
 		<tbody>
 			<c:forEach items="${blog.items}" var="item">
 				<tr>
-					<td>${item.title}</td>
-					<td>${item.link}</td>
+					<td> <c:out value="${item.title}" /> </td>
+					<td> <c:out value="${item.link}" /> </td>
 				</tr>
 			</c:forEach>
 		</tbody>

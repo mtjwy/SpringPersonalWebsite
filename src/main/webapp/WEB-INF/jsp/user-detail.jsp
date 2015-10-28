@@ -2,8 +2,8 @@
 <%@ include file="../layout/taglib.jsp"%>
 
 <div class="blog-header">
-			<h1 class="blog-title">${user.name} Detail</h1>
-			<p class="lead blog-description">Show ${user.name}'s detail information</p>
+			<h1 class="blog-title"><c:out value="${user.name}" /> Detail</h1>
+			<p class="lead blog-description">Show <c:out value="${user.name}" />'s detail information</p>
 </div>
 
 <div class="col-sm-8 blog-main">
