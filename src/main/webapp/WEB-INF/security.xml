@@ -16,11 +16,25 @@
 		<logout logout-url="/logout.html" />
 	</http>
 
+<!-- 	<authentication-manager> -->
+<!-- 		<authentication-provider> -->
+<!-- 			<user-service> -->
+<!-- 				<user name="admin" password="123" authorities="ROLE_USER, ROLE_ADMIN" /> -->
+<!-- 			</user-service> -->
+<!-- 		</authentication-provider> -->
+<!-- 	</authentication-manager> -->
+	
 	<authentication-manager>
 		<authentication-provider>
-			<user-service>
-				<user name="admin" password="123" authorities="ROLE_USER, ROLE_ADMIN" />
-			</user-service>
+			<jdbc-user-service data-source-ref="dataSource"
+				authorities-by-username-query="select webuser.name, role.name from webuser
+ 												join webuser_role on webuser.id = webuser_role.webusers_id 
+ 												join role on webuser_role.roles_id = role.id 
+												where webuser.name = ?" 
+				users-by-username-query="select name, password, 1 from webuser where name = ?"
+				
+				
+			/>
 		</authentication-provider>
 	</authentication-manager>
 
