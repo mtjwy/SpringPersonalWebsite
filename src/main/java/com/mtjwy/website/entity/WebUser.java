@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 
 
@@ -19,10 +22,14 @@ public class WebUser {
 	@GeneratedValue
 	private Integer id;
 	
+	@Size(min=3, message="Name must be at least 3 characters!")
 	private String name;
 	
+	@Size(min=6, message="Password must be at least 6 characters!")
 	private String password;
 	
+	@Size(min=1, message="Invalid email address!")
+	@Email(message="Invalid email address!")
 	private String email;
 	
 	@ManyToMany
