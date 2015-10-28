@@ -68,8 +68,8 @@ public class WebUserController {
 	public String doAddBlog(@ModelAttribute("blog") Blog blog, Principal principal) {//use principal to get info about which user want to add a blog
 		String name = principal.getName();
 		blogService.save(blog, name);
-		return "redirect:/account.html";
-
-		
+		return "redirect:/account.html";	
 	}
+	
+	
 }
