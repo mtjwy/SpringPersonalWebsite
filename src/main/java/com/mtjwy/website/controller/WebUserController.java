@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.mtjwy.website.entity.Blog;
 import com.mtjwy.website.entity.WebUser;
+import com.mtjwy.website.service.BlogService;
 import com.mtjwy.website.service.WebUserService;
 
 @Controller
@@ -18,9 +20,17 @@ public class WebUserController {
 	@Autowired
 	private WebUserService webUserService;
 	
+	@Autowired
+	private BlogService blogService;
+	
 	@ModelAttribute("webuser")//bind the commandName="user" in user-register form to this method
-	public WebUser construct() {
+	public WebUser constructUser() {
 		return new WebUser();
+	}
+	
+	@ModelAttribute("blog")
+	public Blog constructBlog() {
+		return new Blog();
 	}
 	
 	@RequestMapping("/users")
@@ -52,5 +62,14 @@ public class WebUserController {
 		String name = principal.getName();
 		model.addAttribute("user", webUserService.findOneWithBlogs(name));
 		return "account-detail";
+	}
+	
+	@RequestMapping(value="/account", method=RequestMethod.POST)
+	public String doAddBlog(@ModelAttribute("blog") Blog blog, Principal principal) {//use principal to get info about which user want to add a blog
+		String name = principal.getName();
+		blogService.save(blog, name);
+		return "redirect:/account.html";
+
+		
 	}
 }
