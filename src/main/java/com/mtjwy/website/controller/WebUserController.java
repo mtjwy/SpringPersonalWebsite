@@ -27,7 +27,7 @@ public class WebUserController {
 		return "users";
 	}
 	
-	@RequestMapping("users/{id}")
+	@RequestMapping("/users/{id}")
 	public String detail(Model model, @PathVariable int id) {
 		model.addAttribute("user", webUserService.findOneWithArticles(id));
 		return "user-detail";

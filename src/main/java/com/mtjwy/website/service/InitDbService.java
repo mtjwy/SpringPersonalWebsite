@@ -48,6 +48,7 @@ public class InitDbService {
 		
 		WebUser userAdmin = new WebUser();
 		userAdmin.setName("admin");
+		userAdmin.setPassword("123");
 		List<Role> roles = new ArrayList<Role>();
 		roles.add(roleUser);
 		roles.add(roleAdmin);

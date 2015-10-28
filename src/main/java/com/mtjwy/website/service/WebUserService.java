@@ -16,6 +16,7 @@ import com.mtjwy.website.repository.ArticleRepository;
 import com.mtjwy.website.repository.WebUserRepository;
 
 @Service
+@Transactional
 public class WebUserService {
 
 	@Autowired
@@ -38,7 +39,7 @@ public class WebUserService {
 	}
 
 
-	@Transactional
+	
 	public Object findOneWithArticles(int id) {
 		WebUser user = findOne(id);
 		List<ArticleCategory> articleCategories= articleCategoryRepository.findByWebUser(user);

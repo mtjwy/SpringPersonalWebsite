@@ -12,14 +12,14 @@
 		<intercept-url pattern="/users**" access="hasRole('ROLE_ADMIN')" />
 		<intercept-url pattern="/users/**" access="hasRole('ROLE_ADMIN')" />
 
-		<form-login />
-		<logout />
+		<form-login login-page="/login.html"/>
+		<logout logout-url="/logout.html" />
 	</http>
 
 	<authentication-manager>
 		<authentication-provider>
 			<user-service>
-				<user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
+				<user name="admin" password="123" authorities="ROLE_USER, ROLE_ADMIN" />
 			</user-service>
 		</authentication-provider>
 	</authentication-manager>
