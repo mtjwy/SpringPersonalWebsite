@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <%@ include file="../layout/taglib.jsp"%>
 
+
+
 <div class="blog-header">
 			<h1 class="blog-title">${user.name}'s RSS Feed</h1>
 			<p class="lead blog-description">Show ${user.name}'s blogs</p>
@@ -49,7 +51,21 @@
 
 </form:form>
 
+
+
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+  	<c:forEach items="${user.blogs}" var="blog">
+  		<li ><a href="#blog_${blog.id}" data-toggle="tab">${blog.name}</a></li>	
+  	</c:forEach>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
 <c:forEach items="${user.blogs}" var="blog">
+	<div role="tabpanel" class="tab-pane " id="blog_${blog.id}">
+	
 	<h1>${blog.name}</h1>
 	<p>${blog.url}</p>
 	
@@ -71,10 +87,22 @@
 	
 	
 	</table>
+	
+	</div>
 </c:forEach>
 
-  
+</div><!-- End Tab panes -->
 
 
 
 </div>
+
+<script type="text/javascript">
+	
+		$(document).ready(function(){
+			$('.nav-tabs a:first').tab('show'); // Select first tab
+		});
+</script>
+
+
+
