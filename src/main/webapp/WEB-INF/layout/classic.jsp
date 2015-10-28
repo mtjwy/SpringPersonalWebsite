@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@ include file="../layout/taglib.jsp"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security"%>
 
 <html lang="en">
 <head>
@@ -37,12 +38,19 @@
 				<a
 					class="blog-nav-item" href="#">New features</a> 
 				<a
-					class="blog-nav-item" href="#">Press</a> 
-				<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a>
+					class="blog-nav-item" href="#">Press</a>
+				<security:authorize access="hasRole('ROLE_ADMIN')"> 
+					<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a>
+				</security:authorize>
 				<a class="blog-nav-item ${current == 'new-article' ? 'active' : '' }" href='<spring:url value="/new-article.html"/>'>Add Article</a> 
 				<a class="blog-nav-item ${current == 'user-register' ? 'active' : '' }" href='<spring:url value="/register.html"/>'>Register</a>
-				<a class="blog-nav-item ${current == 'login' ? 'active' : '' }" href='<spring:url value="/login.html"/>'>Login</a>
-				<a class="blog-nav-item " href='<spring:url value="/logout.html"/>'>Logout</a>
+				<security:authorize access="! isAuthenticated()">
+					<a class="blog-nav-item ${current == 'login' ? 'active' : '' }" href='<spring:url value="/login.html"/>'>Login</a>
+				</security:authorize>
+				
+				<security:authorize access="isAuthenticated()">
+					<a class="blog-nav-item " href='<spring:url value="/logout.html"/>'>Logout</a>
+				</security:authorize>
 				<a class="blog-nav-item" href="#">About</a>
 			</nav>
 		</div>
