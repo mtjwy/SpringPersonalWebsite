@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mtjwy.website.entity.Article;
+import com.mtjwy.website.entity.ArticleCategory;
+import com.mtjwy.website.entity.Blog;
 import com.mtjwy.website.service.ArticleService;
 
 @Controller
