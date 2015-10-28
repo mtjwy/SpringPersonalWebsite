@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -33,5 +34,11 @@ public class ArticleController {
 	public String newArticle(@ModelAttribute("article") Article article) {	
 		articleService.save(article);
 		return "new-article";
+	}
+	
+	@RequestMapping("/article-category/articles/remove/{id}")
+	public String removeArticle(@PathVariable int id) {
+		articleService.delete(id);
+		return "redirect:/article-category.html";
 	}
 }

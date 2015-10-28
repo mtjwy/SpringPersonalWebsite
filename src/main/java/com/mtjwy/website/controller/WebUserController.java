@@ -105,11 +105,12 @@ public class WebUserController {
 
 	}
 	
-	@RequestMapping("users/remove/{id}")
+	@RequestMapping("/users/remove/{id}")
 	public String removeUser(@PathVariable int id) {
 		webUserService.delete(id);
 		return "redirect:/users.html";
 	}
+	
 	
 	
 }

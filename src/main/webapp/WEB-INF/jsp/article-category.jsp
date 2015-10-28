@@ -73,6 +73,11 @@
 				<tr>
 					<td>${article.title}</td>
 					<td>${article.publishDate}</td>
+					<td>
+					<a href="<spring:url value="/article-category/articles/remove/${article.id}.html" />" class="btn btn-danger">
+						remove 
+					</a>
+					</td>
 				</tr>
 			</c:forEach>
 		</tbody>
