@@ -34,7 +34,7 @@
  												join webuser_role on webuser.id = webuser_role.webusers_id 
  												join role on webuser_role.roles_id = role.id 
 												where webuser.name = ?" 
-				users-by-username-query="select name, password, 1 from webuser where name = ?"
+				users-by-username-query="select name, password, enabled  from webuser where name = ?"
 				
 				
 			/>

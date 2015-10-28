@@ -29,6 +29,8 @@ public class WebUser {
 	
 	@OneToMany(mappedBy="webUser")
 	private List<ArticleCategory> articleCategories;
+	
+	private boolean enabled;
 
 	public Integer getId() {
 		return id;
@@ -78,9 +80,14 @@ public class WebUser {
 		this.email = email;
 	}
 
-	
-	
-	
-	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+
 	
 }
