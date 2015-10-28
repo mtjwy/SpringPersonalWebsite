@@ -2,6 +2,7 @@ package com.mtjwy.website.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -42,7 +43,7 @@ public class WebUser {
 	 * indicates that the entity in this side is the inverse of the
 	 * relationship, and the owner resides in the "other" entity.
 	 */
-	@OneToMany(mappedBy = "webUser")
+	@OneToMany(mappedBy = "webUser", cascade=CascadeType.REMOVE)
 	private List<Blog> blogs;
 
 	public List<Blog> getBlogs() {

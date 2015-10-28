@@ -28,6 +28,8 @@ public class WebUserController {
 	@Autowired
 	private ArticleCategoryService articleCategoryService;
 	
+	
+	
 	@ModelAttribute("webuser")//bind the commandName="user" in user-register form to this method
 	public WebUser constructUser() {
 		return new WebUser();
@@ -93,6 +95,20 @@ public class WebUserController {
 		String name = principal.getName();
 		model.addAttribute("user", webUserService.findOneWithArticles(name));
 		return "article-category";	
+	}
+	
+	@RequestMapping("/blog/remove/{id}")
+	public String removeBlog(@PathVariable int id) {
+		blogService.delete(id);
+		
+		return "redirect:/account.html";
+
+	}
+	
+	@RequestMapping("users/remove/{id}")
+	public String removeUser(@PathVariable int id) {
+		webUserService.delete(id);
+		return "redirect:/users.html";
 	}
 	
 	

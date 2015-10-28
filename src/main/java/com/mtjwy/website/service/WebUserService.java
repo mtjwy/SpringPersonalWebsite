@@ -104,5 +104,11 @@ public class WebUserService {
 		return findOneWithBlogs(user.getId());
 	}
 
+
+	public void delete(int id) {
+		webUserRepository.delete(id);
+		
+	}
+
 	
 }

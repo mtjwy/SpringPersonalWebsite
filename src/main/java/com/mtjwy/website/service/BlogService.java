@@ -29,4 +29,9 @@ public class BlogService {
 		return blogRepository.findOne(id);
 	}
 
+	public void delete(int id) {
+		blogRepository.delete(id);
+		
+	}
+
 }

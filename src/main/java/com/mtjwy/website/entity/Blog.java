@@ -2,6 +2,7 @@ package com.mtjwy.website.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Blog {
 	@JoinColumn(name = "webuser_id") // set foreign key
 	private WebUser webUser;
 
-	@OneToMany(mappedBy = "blog")
+	@OneToMany(mappedBy = "blog", cascade=CascadeType.REMOVE)
 	private List<Item> items;
 
 	public Integer getId() {
