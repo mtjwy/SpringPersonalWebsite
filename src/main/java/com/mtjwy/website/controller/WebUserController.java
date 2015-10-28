@@ -41,6 +41,7 @@ public class WebUserController {
 	@RequestMapping(value="/register", method=RequestMethod.POST)
 	public String doRegister(@ModelAttribute("webuser") WebUser user) {
 		webUserService.save(user);
-		return "user-register";
+		
+		return "redirect:/register.html?success=true";
 	}
 }
