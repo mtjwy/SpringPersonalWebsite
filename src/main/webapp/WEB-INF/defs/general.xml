@@ -101,6 +101,12 @@
     <put-attribute name="body" value="/WEB-INF/jsp/new-article-markdown.jsp" />
     <put-attribute name="current" value="new-article-markdown"/>
 </definition>
+
+<definition name="edit-article-markdown" extends="edit-article-template">
+    <put-attribute name="title" value="edit-article-markdown" />
+    <put-attribute name="body" value="/WEB-INF/jsp/edit-article-markdown.jsp" />
+    <put-attribute name="current" value="edit-article-markdown"/>
+</definition>
   
   
   

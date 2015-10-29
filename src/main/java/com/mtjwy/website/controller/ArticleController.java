@@ -81,7 +81,8 @@ public class ArticleController {
 	@RequestMapping("/edit/{id}")
 	public String showEditArticlePage(Model model, @PathVariable int id) {
 		model.addAttribute("article", articleService.findOne(id));
-		return "edit-article";
+//		return "edit-article";
+		return "edit-article-markdown";
 	}
 	
 	/*

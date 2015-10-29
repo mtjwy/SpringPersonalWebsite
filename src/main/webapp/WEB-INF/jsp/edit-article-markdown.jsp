@@ -3,30 +3,35 @@
 <%@ include file="../layout/taglib.jsp"%>
 
 <div class="blog-header">
-			<h1 class="blog-title">Write a new article</h1>
+			<h1 class="blog-title">Edit article</h1>
 			<p class="lead blog-description">Good good study, day day up!</p>
 </div>
 
+
+
+
+
+
 <div class="col-xs-7">
-<form:form commandName="new-article" cssClass="form-horizontal" action="/${category_id}/new-article.html">
+<form:form commandName="article" cssClass="form-horizontal" action="/edit/${article.id }.html">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">Title:</label>
 		<div class="col-sm-10">
-			<form:input path="title" cssClass="form-control" />
+			<form:input path="title" cssClass="form-control" value="${article.title }"/>
 		</div>
 	</div>
 	
 	<div class="form-group">
 		<label for="description" class="col-sm-2 control-label">Description:</label>
 		<div class="col-sm-10">
-			<form:input path="description" cssClass="form-control" />
+			<form:input path="description" cssClass="form-control" value="${article.description }"/>
 		</div>
 	</div>
 	
 	<div class="form-group">
 		<label for="content" class="col-sm-2 control-label">Content:</label>
 		<div class="col-sm-10">
-			<form:textarea id="text-input" oninput="this.editor.update()" path="content" cssClass="form-control" rows="20"/>
+			<form:textarea id="text-input" oninput="this.editor.update()" path="content" cssClass="form-control" rows="30" />
 		</div>
 	</div>
 	
@@ -41,9 +46,8 @@
 </div>
 
 <div class="col-xs-5">
- <p>Article preview:</p>
- <div id="preview" style="border-style: solid; border-width: 1px;"></div>
-    
+ <p>Preview:</p>
+ <div id="preview" style="border-style: solid; border-width: 1px;" ></div>
 </div>
 
  <script src="/resources/js/lib/markdown.js"></script>
