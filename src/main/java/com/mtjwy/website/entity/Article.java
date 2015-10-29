@@ -19,8 +19,10 @@ public class Article {
 	
 	private String title;
 	
+	@Column(length = 1000)
 	private String description;
 	
+	@Column(length = Integer.MAX_VALUE)
 	private String content;
 	
 	@Column(name = "publish_date")

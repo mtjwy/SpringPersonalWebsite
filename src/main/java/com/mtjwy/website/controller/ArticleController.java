@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.mtjwy.website.entity.Article;
 import com.mtjwy.website.service.ArticleCategoryService;
@@ -23,11 +24,19 @@ public class ArticleController {
 	private ArticleCategoryService articleCategoryService;
 	
 	
-	@ModelAttribute("article")
+	@ModelAttribute("new-article")
 	public Article construct() {
 		
 		return new Article();
 	}
+	
+	@ModelAttribute("article")
+	public Article constructEditedArticle() {
+		
+		return new Article();
+	}
+	
+	
 	
 	@RequestMapping("/{category_id}/new-article")
 	public String showNewArticle(@PathVariable int category_id, Model model) {
@@ -36,7 +45,7 @@ public class ArticleController {
 	}
 	
 	@RequestMapping(value="/{category_id}/new-article", method=RequestMethod.POST)
-	public String newArticle(@ModelAttribute("article") Article article, @PathVariable int category_id) {	
+	public String newArticle(@ModelAttribute("new-article") Article article, @PathVariable int category_id) {	
 		articleService.save(article, category_id);
 		return "redirect:/article-category.html";
 	}
@@ -66,4 +75,51 @@ public class ArticleController {
 		model.addAttribute("category", articleCategoryService.findOneWithArticles(id));
 		return "category-articles";
 	}
+	
+	//To populate spring <form:textarea> with value, need to populate, or bind Model to form
+	@RequestMapping("/edit/{id}")
+	public String showEditArticlePage(Model model, @PathVariable int id) {
+		model.addAttribute("article", articleService.findOne(id));
+		return "edit-article";
+	}
+	
+	/*
+	 * http://stackoverflow.com/questions/23201229/initial-value-to-textarea-field-in-form-tld?rq=1
+	 There is no value property in textarea when form tags are used. 
+	 Path property is used for data binding. For eg., just before rendering 
+	 the view in which you are using this textarea, populate the model object 
+	 with the data in your controller as:
+
+    @RequestMapping(value="/prepareArticleForm")
+    public ModelAndView prepareArticle(Model model) {
+        Article article = new Article();
+        article.setDescription("Your text");
+        return new ModelAndView("articleView","article",article);
+    }
+    
+	In your articleView jsp:
+
+    <form:form action="someAction" commandName="article" method="post">         
+         <form:textarea path="description" />
+    </form:form>
+	 */
+	
+	
+//	@RequestMapping("/edit/{id}")
+//    public ModelAndView showEditArticlePage(Model model, @PathVariable int id) {
+//		
+//        return new ModelAndView("edit-article", "article", articleService.findOne(id));
+//    }
+	
+	@RequestMapping(value="/edit/{id}", method=RequestMethod.POST)
+	public String editArticle(@ModelAttribute("article") Article article, @PathVariable int id) {
+		Article a = articleService.findOne(id);
+		a.setContent(article.getContent());
+		a.setTitle(article.getTitle());
+		a.setDescription(article.getDescription());
+		articleService.save(a);
+		return "redirect:/article/{id}.html";
+	}
+	
+	
 }

@@ -57,8 +57,8 @@
 
 <c:forEach items="${user.articleCategories}" var="category">
 	<div role="tabpanel" class="tab-pane " id="category_${category.id}">
-	
-	<h3><a href='<spring:url value="/${category.id}/new-article.html"/>'>write new article</a></h3>
+	<br>
+	<h3><a href='<spring:url value="/${category.id}/new-article.html"/>' class="btn btn-success"> new article</a></h3>
 	<p></p>
 	
 	<table class="table table-bordered table-hover table-striped">
@@ -73,6 +73,11 @@
 				<tr>
 					<td>${article.title}</td>
 					<td>${article.publishDate}</td>
+					
+					<td>
+					<a href='<spring:url value="/edit/${article.id }.html"/>' class="btn btn-warning"> edit</a>
+					</td>
+					
 					<td>
 					<a href="<spring:url value="/article-category/articles/remove/${article.id}.html" />" class="btn btn-danger triggerRemove">
 						remove 
