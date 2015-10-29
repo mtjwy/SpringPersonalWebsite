@@ -5,7 +5,7 @@
 
 
 <div class="blog-header">
-			<h1 class="blog-title">My Projects </h1>
+			<h1 class="blog-title">Projects </h1>
 			<p class="lead blog-description"> October 28, 2015 </p>
 </div>
 

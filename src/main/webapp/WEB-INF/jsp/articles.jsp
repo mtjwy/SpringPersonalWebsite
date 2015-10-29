@@ -11,7 +11,7 @@
 <c:forEach items="${articles}" var="article">
   		
 <div class="blog-post">
-	<h2 class="blog-post-title"><a href="#">${article.title}</a></h2>
+	<h2 class="blog-post-title"><a href="/article/${article.id }.html">${article.title}</a></h2>
 	<p class="blog-post-meta">
 		 
 		<fmt:formatDate value="${article.publishDate}" pattern="yyyy-MM-dd"/>
@@ -20,7 +20,7 @@
 	</p>
 	
 
-	<p>${article.description}</p>
+	<p>Description: &nbsp ${article.description}</p>
 	<hr>
 	
 </div>

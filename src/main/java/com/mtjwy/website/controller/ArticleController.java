@@ -53,4 +53,11 @@ public class ArticleController {
 		return "articles";
 	}
 	
+
+	@RequestMapping("/article/{id}")
+	public String showArticle(Model model, @PathVariable int id) {
+		model.addAttribute("article", articleService.findOne(id));
+		return "article";
+	}
+	
 }

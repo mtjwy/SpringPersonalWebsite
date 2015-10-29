@@ -50,6 +50,11 @@ public class ArticleService {
 		
 		return articleRepository.findAll(new PageRequest(0, 20, Direction.DESC, "publishDate")).getContent();
 	}
+
+	public Article findOne(int id) {
+		
+		return articleRepository.findOne(id);
+	}
 	
 	
 
