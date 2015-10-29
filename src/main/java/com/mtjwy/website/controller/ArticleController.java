@@ -40,7 +40,9 @@ public class ArticleController {
 	@RequestMapping("/{category_id}/new-article")
 	public String showNewArticle(@PathVariable int category_id, Model model) {
 		model.addAttribute("category_id", category_id);
-		return "new-article";
+//		return "new-article";
+		
+		return "new-article-markdown";
 	}
 	
 	@RequestMapping(value="/{category_id}/new-article", method=RequestMethod.POST)

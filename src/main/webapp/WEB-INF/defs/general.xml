@@ -91,5 +91,17 @@
     <put-attribute name="current" value="home"/>
   </definition>
   
+<!--   template for article edit blow -->
+<definition name="edit-article-template" template="/WEB-INF/layout/edit-classic.jsp">
+    <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
+</definition>
+
+<definition name="new-article-markdown" extends="edit-article-template">
+    <put-attribute name="title" value="new-article-markdown" />
+    <put-attribute name="body" value="/WEB-INF/jsp/new-article-markdown.jsp" />
+    <put-attribute name="current" value="new-article-markdown"/>
+</definition>
+  
+  
   
 </tiles-definitions>

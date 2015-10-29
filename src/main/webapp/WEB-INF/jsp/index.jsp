@@ -6,7 +6,8 @@
 				creating a blog with Bootstrap.</p>
 		</div>
 
-<div class="col-sm-8 blog-main">	
+<div class="col-sm-8 blog-main">
+  	
 <div class="blog-post">
 	<h2 class="blog-post-title">Sample blog post</h2>
 	<p class="blog-post-meta">
@@ -141,3 +142,4 @@
 </nav>
 
 </div>
+
