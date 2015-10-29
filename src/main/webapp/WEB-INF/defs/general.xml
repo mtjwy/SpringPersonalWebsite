@@ -85,6 +85,14 @@
     <put-attribute name="current" value="edit-article"/>
   </definition>
   
+  <definition name="rss-feed" extends="common">
+    <put-attribute name="title" value="rss-feed" />
+    <put-attribute name="body" value="/WEB-INF/jsp/rss-feed.jsp" />
+    <put-attribute name="current" value="rss-feed"/>
+  </definition>
+  
+<!--   home template -->
+  
   <definition name="home" template="/WEB-INF/jsp/home.jsp">
   	<put-attribute name="title" value="home" />
   	<put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />

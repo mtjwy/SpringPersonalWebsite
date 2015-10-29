@@ -60,6 +60,7 @@ public class ArticleController {
 	@RequestMapping("/articles")
 	public String articles(Model model) {
 		model.addAttribute("articles", articleService.findLatestArticles());
+		model.addAttribute("categs", articleCategoryService.findAll());
 		return "articles";
 	}
 	
@@ -67,6 +68,7 @@ public class ArticleController {
 	@RequestMapping("/article/{id}")
 	public String showArticle(Model model, @PathVariable int id) {
 		model.addAttribute("article", articleService.findOne(id));
+		model.addAttribute("categs", articleCategoryService.findAll());
 		return "article";
 	}
 	
@@ -74,6 +76,7 @@ public class ArticleController {
 	@RequestMapping("/articleCategory/{id}")
 	public String showArticlesByCategory(Model model, @PathVariable int id) {
 		model.addAttribute("category", articleCategoryService.findOneWithArticles(id));
+		model.addAttribute("categs", articleCategoryService.findAll());
 		return "category-articles";
 	}
 	

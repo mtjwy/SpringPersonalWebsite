@@ -48,6 +48,11 @@ public class ArticleCategoryService {
 		
 		return ac;
 	}
+
+	public List<ArticleCategory> findAll() {
+		
+		return articleCategoryRepository.findAll();
+	}
 	
 	
 

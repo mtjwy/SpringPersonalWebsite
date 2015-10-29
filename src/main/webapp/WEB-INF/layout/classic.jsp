@@ -56,20 +56,25 @@
 				<a class="blog-nav-item  ${current == 'projects' ? 'active' : '' }" href="/projects.html">Projects</a> 
 				
 				<a class="blog-nav-item  ${current == 'articles' ? 'active' : '' }" href="/articles.html">Articles</a>
+				<a class="blog-nav-item  ${current == 'rss-feed' ? 'active' : '' }" href="/rss-feed.html">Rss Feed</a>
 				
 				<security:authorize access="! isAuthenticated()">
 					<a class="blog-nav-item ${current == 'login' ? 'active' : '' }" href='<spring:url value="/login.html"/>'>Login</a>
 				</security:authorize>
 				
 				<security:authorize access="isAuthenticated()">
-					<a class="blog-nav-item ${current == 'account-detail' ? 'active' : '' }" href='<spring:url value="/account.html"/>'>My RSS Feed</a>
 					<a class="blog-nav-item " href='<spring:url value="/logout.html"/>'>Logout</a>
+					
 				</security:authorize>
 				<a class="blog-nav-item ${current == 'user-register' ? 'active' : '' }" href='<spring:url value="/register.html"/>'>Register</a>
 				
+				<security:authorize access="isAuthenticated()">
+				<a class="blog-nav-item ${current == 'account-detail' ? 'active' : '' }" href='<spring:url value="/account.html"/>'>My RSS Feed</a>	
+				</security:authorize>
+				
 				<security:authorize access="hasRole('ROLE_ADMIN')"> 
 					<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a>
-					<a class="blog-nav-item ${current == 'article-category' ? 'active' : '' }" href='<spring:url value="/article-category.html"/>'>Add Article</a>
+					<a class="blog-nav-item ${current == 'article-category' ? 'active' : '' }" href='<spring:url value="/article-category.html"/>'>Manage Articles</a>
 				</security:authorize>
 				
 				<a class="blog-nav-item" href="#">About</a>
@@ -86,10 +91,7 @@
 
 
 			<tiles:insertAttribute name="body" />
-
-
-
-
+			
 			<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 				<div class="sidebar-module sidebar-module-inset">
 					<h4>About</h4>
@@ -100,32 +102,24 @@
 					</p>
 				</div>
 				<div class="sidebar-module">
-					<h4>Archives</h4>
+					<h4>Article Category</h4>
 					<ol class="list-unstyled">
-						<li><a href="#">March 2014</a></li>
-						<li><a href="#">February 2014</a></li>
-						<li><a href="#">January 2014</a></li>
-						<li><a href="#">December 2013</a></li>
-						<li><a href="#">November 2013</a></li>
-						<li><a href="#">October 2013</a></li>
-						<li><a href="#">September 2013</a></li>
-						<li><a href="#">August 2013</a></li>
-						<li><a href="#">July 2013</a></li>
-						<li><a href="#">June 2013</a></li>
-						<li><a href="#">May 2013</a></li>
-						<li><a href="#">April 2013</a></li>
+						<c:forEach items="${categs}" var="categ">
+							<li><a href="/articleCategory/${categ.id }.html">${categ.name}</a></li>
+						</c:forEach>
 					</ol>
 				</div>
 				<div class="sidebar-module">
 					<h4>Elsewhere</h4>
 					<ol class="list-unstyled">
-						<li><a href="#">GitHub</a></li>
+						<li><a href="https://github.com/mtjwy">GitHub</a></li>
 						<li><a href="#">Twitter</a></li>
 						<li><a href="#">Facebook</a></li>
 					</ol>
 				</div>
 			</div>
 			<!-- /.blog-sidebar -->
+
 
 		</div>
 		<!-- /.row -->
