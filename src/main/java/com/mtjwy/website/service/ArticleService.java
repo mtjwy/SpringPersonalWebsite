@@ -3,13 +3,17 @@ package com.mtjwy.website.service;
 
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.mtjwy.website.entity.Article;
 import com.mtjwy.website.entity.ArticleCategory;
+import com.mtjwy.website.entity.Item;
 import com.mtjwy.website.repository.ArticleCategoryRepository;
 import com.mtjwy.website.repository.ArticleRepository;
 
@@ -41,5 +45,12 @@ public class ArticleService {
 		ac.getArticles().add(article);
 		
 	}
+
+	public List<Article> findLatestArticles() {
+		
+		return articleRepository.findAll(new PageRequest(0, 20, Direction.DESC, "publishDate")).getContent();
+	}
+	
+	
 
 }

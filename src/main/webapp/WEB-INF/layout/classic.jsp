@@ -54,6 +54,8 @@
 				
 				<a class="blog-nav-item  ${current == 'projects' ? 'active' : '' }" href="/projects.html">Projects</a> 
 				
+				<a class="blog-nav-item  ${current == 'articles' ? 'active' : '' }" href="/articles.html">Articles</a>
+				
 				<security:authorize access="! isAuthenticated()">
 					<a class="blog-nav-item ${current == 'login' ? 'active' : '' }" href='<spring:url value="/login.html"/>'>Login</a>
 				</security:authorize>

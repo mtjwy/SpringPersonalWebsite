@@ -46,4 +46,11 @@ public class ArticleController {
 		articleService.delete(id);
 		return "redirect:/article-category.html";
 	}
+	
+	@RequestMapping("/articles")
+	public String articles(Model model) {
+		model.addAttribute("articles", articleService.findLatestArticles());
+		return "articles";
+	}
+	
 }
