@@ -73,5 +73,11 @@
     <put-attribute name="current" value="article"/>
   </definition>
   
+  <definition name="category-articles" extends="common">
+    <put-attribute name="title" value="category-articles" />
+    <put-attribute name="body" value="/WEB-INF/jsp/category-articles.jsp" />
+    <put-attribute name="current" value="category-articles"/>
+  </definition>
+  
   
 </tiles-definitions>

@@ -55,6 +55,11 @@ public class ArticleService {
 		
 		return articleRepository.findOne(id);
 	}
+
+	public List<Article> findByArticleCategory(ArticleCategory ac) {
+		
+		return articleRepository.findByArticleCategory(ac, new PageRequest(0, 20, Direction.DESC, "publishDate"));
+	}
 	
 	
 

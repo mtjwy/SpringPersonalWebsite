@@ -60,4 +60,10 @@ public class ArticleController {
 		return "article";
 	}
 	
+	
+	@RequestMapping("/articleCategory/{id}")
+	public String showArticlesByCategory(Model model, @PathVariable int id) {
+		model.addAttribute("category", articleCategoryService.findOneWithArticles(id));
+		return "category-articles";
+	}
 }

@@ -1,8 +1,13 @@
 package com.mtjwy.website.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+import com.mtjwy.website.entity.Article;
 import com.mtjwy.website.entity.ArticleCategory;
 import com.mtjwy.website.entity.WebUser;
 import com.mtjwy.website.repository.ArticleCategoryRepository;
@@ -13,6 +18,9 @@ public class ArticleCategoryService {
 	
 	@Autowired
 	ArticleCategoryRepository articleCategoryRepository;
+	
+	@Autowired
+	ArticleService articleService;
 	
 	@Autowired
 	WebUserRepository webUserRepository;
@@ -32,6 +40,16 @@ public class ArticleCategoryService {
 	public ArticleCategory findOne(int category_id) {
 		return articleCategoryRepository.findOne(category_id);
 	}
+
+	public ArticleCategory findOneWithArticles(int id) {
+		ArticleCategory ac = findOne(id);
+		List<Article> articles = articleService.findByArticleCategory(ac);
+		ac.setArticles(articles);
+		
+		return ac;
+	}
+	
+	
 
 
 	
