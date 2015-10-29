@@ -29,6 +29,10 @@ public class ArticleCategoryService {
 		
 	}
 
+	public ArticleCategory findOne(int category_id) {
+		return articleCategoryRepository.findOne(category_id);
+	}
+
 
 	
 

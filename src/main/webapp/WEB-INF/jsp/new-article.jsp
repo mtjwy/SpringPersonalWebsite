@@ -11,7 +11,7 @@
 
 <div class="col-sm-8 blog-main">
 
-<form:form commandName="article" cssClass="form-horizontal">
+<form:form commandName="article" cssClass="form-horizontal" action="/${category_id}/new-article.html">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">Title:</label>
 		<div class="col-sm-10">

@@ -58,7 +58,7 @@
 <c:forEach items="${user.articleCategories}" var="category">
 	<div role="tabpanel" class="tab-pane " id="category_${category.id}">
 	
-	<h3><a href='<spring:url value="/new-article.html"/>'>write new article</a></h3>
+	<h3><a href='<spring:url value="/${category.id}/new-article.html"/>'>write new article</a></h3>
 	<p></p>
 	
 	<table class="table table-bordered table-hover table-striped">
