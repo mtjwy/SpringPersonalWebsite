@@ -15,10 +15,27 @@
 		Description: &nbsp ${article.description}
 	</p>
 	<hr>
-	${article.content}
+	<div id="preview" class="preview-div" ></div>
+	
+	<textarea id="text-input" oninput="this.editor.update()" rows="30" style="display:none;">${article.content}</textarea>
+	
 	
 	
 </div>
 <!-- /.blog-post -->
 
 </div>
+
+<script src="/resources/js/lib/markdown.js"></script>
+    <script>
+      function Editor(input, preview) {
+        this.update = function () {
+          preview.innerHTML = markdown.toHTML(input.value);
+        };
+        input.editor = this;
+        this.update();
+      }
+      var $ = function (id) { return document.getElementById(id); };
+      new Editor($("text-input"), $("preview"));
+ 	</script>
+

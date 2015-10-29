@@ -24,7 +24,7 @@
 
 <!-- <link rel="stylesheet" type="text/css" href="css/blog.css"/> -->
 <link rel="stylesheet" type="text/css" href="/resources/css/blog.css"/>
-
+<link rel="stylesheet" type="text/css" href="/resources/css/css-markdown.css"/>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

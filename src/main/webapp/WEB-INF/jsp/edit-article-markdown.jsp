@@ -47,7 +47,7 @@
 
 <div class="col-xs-5">
  <p>Preview:</p>
- <div id="preview" style="border-style: solid; border-width: 1px;" ></div>
+ <div id="preview" class="preview-div"></div>
 </div>
 
  <script src="/resources/js/lib/markdown.js"></script>

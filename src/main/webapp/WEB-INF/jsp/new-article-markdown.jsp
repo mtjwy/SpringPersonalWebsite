@@ -42,7 +42,7 @@
 
 <div class="col-xs-5">
  <p>Article preview:</p>
- <div id="preview" style="border-style: solid; border-width: 1px;"></div>
+ <div id="preview" class="preview-div" ></div>
     
 </div>
 
