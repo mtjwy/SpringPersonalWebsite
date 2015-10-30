@@ -96,8 +96,8 @@ public class InitDbService {
 		articleRepository.save(article2);
 		
 		Blog blogSpring = new Blog();
-		blogSpring.setName("The Pragmatic Programmer");
-		blogSpring.setUrl("https://pragprog.com/feed/global");
+		blogSpring.setName("Yahoo! NBA");
+		blogSpring.setUrl("https://sports.yahoo.com/nba/rss.xml");
 		
 		blogSpring.setWebUser(userAdmin);
 		blogRepository.save(blogSpring);

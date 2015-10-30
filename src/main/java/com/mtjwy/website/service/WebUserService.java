@@ -92,7 +92,7 @@ public class WebUserService {
 		WebUser user = findOne(id);
 		List<Blog> blogs = blogRepository.findByWebUser(user);
 		for(Blog blog : blogs) {
-			List<Item> items = itemRepository.findByBlog(blog, new PageRequest(0, 10, Direction.DESC, "publishDate"));
+			List<Item> items = itemRepository.findByBlog(blog, new PageRequest(0, 20, Direction.DESC, "publishDate"));
 			blog.setItems(items);
 		}
 		user.setBlogs(blogs);

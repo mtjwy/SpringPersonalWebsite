@@ -85,11 +85,7 @@
     <put-attribute name="current" value="edit-article"/>
   </definition>
   
-  <definition name="rss-feed" extends="common">
-    <put-attribute name="title" value="rss-feed" />
-    <put-attribute name="body" value="/WEB-INF/jsp/rss-feed.jsp" />
-    <put-attribute name="current" value="rss-feed"/>
-  </definition>
+  
   
 <!--   home template -->
   
@@ -116,6 +112,11 @@
     <put-attribute name="current" value="edit-article-markdown"/>
 </definition>
   
+  <definition name="rss-feed" extends="edit-article-template">
+    <put-attribute name="title" value="rss-feed" />
+    <put-attribute name="body" value="/WEB-INF/jsp/rss-feed.jsp" />
+    <put-attribute name="current" value="rss-feed"/>
+  </definition>
   
   
 </tiles-definitions>

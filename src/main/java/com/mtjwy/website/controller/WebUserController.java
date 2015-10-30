@@ -50,6 +50,8 @@ public class WebUserController {
 		return new ArticleCategory();
 	}
 	
+	
+	
 	@RequestMapping("/users")
 	public String users(Model model) {
 		model.addAttribute("users", webUserService.findAll());
@@ -77,12 +79,22 @@ public class WebUserController {
 		return "redirect:/register.html?success=true";
 	}
 	
+	@RequestMapping("/rss-feed")
+	public String account(Model model) {
+		String name = "admin";
+		model.addAttribute("user", webUserService.findOneWithBlogs(name));
+		return "rss-feed";
+	}
+	
 	@RequestMapping("/account")
 	public String account(Model model, Principal principal) {//principal is an object in session, which contains the name of the user
 		String name = principal.getName();
 		model.addAttribute("user", webUserService.findOneWithBlogs(name));
 		return "account-detail";
 	}
+	
+	
+	
 	
 	@RequestMapping(value="/account", method=RequestMethod.POST)
 	public String doAddBlog(Model model, @Valid @ModelAttribute("blog") Blog blog, BindingResult result, Principal principal) {//use principal to get info about which user want to add a blog
