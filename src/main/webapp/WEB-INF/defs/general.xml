@@ -43,12 +43,6 @@
     <put-attribute name="current" value="login"/>
   </definition>
   
-  <definition name="account-detail" extends="common">
-    <put-attribute name="title" value="Account Detail" />
-    <put-attribute name="body" value="/WEB-INF/jsp/account-detail.jsp" />
-    <put-attribute name="current" value="account-detail"/>
-  </definition>
-  
    <definition name="article-category" extends="common">
     <put-attribute name="title" value="Article Category" />
     <put-attribute name="body" value="/WEB-INF/jsp/article-category.jsp" />
@@ -70,13 +64,13 @@
    <definition name="article" extends="common">
     <put-attribute name="title" value="article" />
     <put-attribute name="body" value="/WEB-INF/jsp/article.jsp" />
-    <put-attribute name="current" value="article"/>
+    <put-attribute name="current" value="articles"/>
   </definition>
   
   <definition name="category-articles" extends="common">
     <put-attribute name="title" value="category-articles" />
     <put-attribute name="body" value="/WEB-INF/jsp/category-articles.jsp" />
-    <put-attribute name="current" value="category-articles"/>
+    <put-attribute name="current" value="articles"/>
   </definition>
   
   <definition name="edit-article" extends="common">
@@ -116,6 +110,12 @@
     <put-attribute name="title" value="rss-feed" />
     <put-attribute name="body" value="/WEB-INF/jsp/rss-feed.jsp" />
     <put-attribute name="current" value="rss-feed"/>
+  </definition>
+  
+  <definition name="account-detail" extends="edit-article-template">
+    <put-attribute name="title" value="Account Detail" />
+    <put-attribute name="body" value="/WEB-INF/jsp/account-detail.jsp" />
+    <put-attribute name="current" value="account-detail"/>
   </definition>
   
   

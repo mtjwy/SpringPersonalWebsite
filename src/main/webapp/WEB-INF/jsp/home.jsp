@@ -85,7 +85,7 @@
       <!-- Jumbotron -->
       <div class="jumbotron marketing">
         <h1 id="need-you-white" class="white">Welcome !</h1>
-        <h2 class="white"> Post articles, Manage RSS Feed, Projects</h2>
+        <h3 class="white"> Self-study project for exploring awesome features in SpringMVC web programming.Post articles, Manage RSS Feed. Review the past and look forward to the future.</h3>
         <p><a class="btn btn-lg btn-success" href='<spring:url value="/register.html"/>' role="button">Get started today</a></p>
       </div>
 
@@ -94,17 +94,17 @@
         <div class="col-lg-4">
           <h2>See Source Code Of This Website</h2>
           <p class="text-danger">This website is developed with Spring MVC/JPA + Hibernate + HyperSQL DataBase + Bootstrap + JQuery + JAXB. Source code of this website is post on Github. </p>
-          <p>Click button to go to Github to see source code.</p>
+          <p>Click button to go to Github and see source code.</p>
           <p><a class="btn btn-primary" href="https://github.com/mtjwy/SpringPersonalWebsite" target="_blank" role="button">See source code &raquo;</a></p>
         </div>
         <div class="col-lg-4">
           <h2>What This Website Can Do </h2>
-          <p>People can write and manage articles using this website. It also offers a RSS Feed Aggregation service for registered users. Click button bellow to see demo.</p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+          <p>Registered users can write and manage articles on this website. It also offers a RSS Feed Aggregation service. Click button bellow to see demo.</p>
+          <p><a class="btn btn-primary" href="#" role="button">See demo &raquo;</a></p>
        </div>
         <div class="col-lg-4">
           <h2>More Projects</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
+          <p>See my other projects.</p>
           <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
         </div>
       </div>

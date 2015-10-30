@@ -65,7 +65,8 @@ public class WebUserController {
 	}
 	
 	@RequestMapping("/register")
-	public String showRegister() {
+	public String showRegister(Model model) {
+		model.addAttribute("categs", articleCategoryService.findAll());
 		return "user-register";
 	}
 	

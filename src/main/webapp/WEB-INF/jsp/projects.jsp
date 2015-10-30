@@ -13,27 +13,31 @@
 
 <div class="col-sm-8 blog-main">
 
+<div class=" well">
 <h2>SpringPersonalWebsite</h2>
 <ul>
   <li>Source code: <a href="https://github.com/mtjwy/SpringPersonalWebsite" target="_blank">https://github.com/mtjwy/SpringPersonalWebsite</a></li>
+  <li>It&rsquo;s also the source code of this website.</li>
   <li>Year: October, 2015</li>
-  <li>SpringPersonalWebsite is a clean-design personal web site implemented with Spring MVC. This website also provide a RSS Feed Aggregation service for registered users. It&rsquo;s also the source code of this web site <a href="https://mtjwy.com">https://mtjwy.com</a>.</li>
+  <li>SpringPersonalWebsite is a clean-design personal website implemented with Spring MVC. This website also provides a RSS Feed Aggregation service for registered users. <a href="https://mtjwy.com">https://mtjwy.com</a>.</li>
   <li>Technology: Spring MVC/JPA + Hibernate + HyperSQL DataBase + Bootstrap + JQuery + JAXB</li>
 </ul>
-<br>
 
+</div>
 
+<div class=" well">
 <h2>Android game published on Google Play</h2>
 <ul>
-  <li><a href="https://play.google.com/store/apps/details?id=com.lamaryw.InsectSmasher" target="_blank">See it in Google Play</a></li>
+  <li><a href="https://play.google.com/store/apps/details?id=com.lamaryw.InsectSmasher" target="_blank">See it on Google Play</a></li>
   <li>Source code: <a href="https://github.com/mtjwy/InsectSmasher" target="_blank">https://github.com/mtjwy/InsectSmasher</a></li>
   <li>Year: July, 2015</li>
   <li>Insect Smasher is an entertaining 2D video game implemented with Android Graphics library. </li>
   <li>Tools: Android + Java + Eclipse</li>
 </ul>
 
-<br>
-     
+</div>
+
+ <div class=" well">    
     <h2>Watts-Strogatz Small World Simulation</h2>
 	<ul>
 	  <li>Source code: <a href="https://github.com/mtjwy/WattsStrogatzSmallWorld" target="_blank">https://github.com/mtjwy/WattsStrogatzSmallWorld</a></li>
@@ -42,7 +46,7 @@
 	  <li>Tools: Java + Eclipse</li>
 	</ul>
 	
-	<br>
+</div>
 	
 <!-- Carousel
     ================================================== -->

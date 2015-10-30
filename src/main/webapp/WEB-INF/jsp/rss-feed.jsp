@@ -4,8 +4,7 @@
 
 
 <div class="blog-header">
-			<h1 class="blog-title"><c:out value="${user.name}" />'s RSS Feed</h1>
-			<p class="lead blog-description">Show <c:out value="${user.name}" />'s blogs</p>
+			<h2 class="blog-title"><c:out value="${user.name}" />'s RSS Feed</h2>
 </div>
 
 
@@ -22,7 +21,6 @@
 
 <c:forEach items="${user.blogs}" var="blog">
 	<div role="tabpanel" class="tab-pane " id="blog_${blog.id}">
-	
 	<table class="table table-bordered table-hover table-striped">
 		<colgroup>
        		<col span="1" style="width: 12%;">
