@@ -1,6 +1,8 @@
 package com.mtjwy.website.controller;
 
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.mtjwy.website.entity.Article;
+import com.mtjwy.website.entity.WebUser;
 import com.mtjwy.website.service.ArticleCategoryService;
 import com.mtjwy.website.service.ArticleService;
+import com.mtjwy.website.service.RoleService;
+import com.mtjwy.website.service.WebUserService;
 
 @Controller
 public class ArticleController {
@@ -21,6 +26,12 @@ public class ArticleController {
 	
 	@Autowired
 	private ArticleCategoryService articleCategoryService;
+	
+	@Autowired
+	private WebUserService webUserService;
+	
+	@Autowired
+	private RoleService roleService;
 	
 	
 	@ModelAttribute("new-article")
@@ -57,11 +68,27 @@ public class ArticleController {
 		return "redirect:/article-category.html";
 	}
 	
+//	@RequestMapping("/articles")
+//	public String articles(Model model) {
+//		model.addAttribute("articles", articleService.findLatestArticles());
+//		model.addAttribute("categs", articleCategoryService.findAll());
+//		return "articles";
+//	}
+	
 	@RequestMapping("/articles")
 	public String articles(Model model) {
-		model.addAttribute("articles", articleService.findLatestArticles());
-		model.addAttribute("categs", articleCategoryService.findAll());
+		String adminName = roleService.findAdminName();
+		WebUser user = webUserService.findOneWithArticles(adminName);
+		model.addAttribute("user", user);
+		model.addAttribute("categs", user.getArticleCategories());
 		return "articles";
+	}
+	
+	@RequestMapping("/my-articles")
+	public String articlesByUserId(Model model, Principal principal) {
+		String name = principal.getName();
+		model.addAttribute("user", webUserService.findOneWithArticles(name));
+		return "my-articles";
 	}
 	
 

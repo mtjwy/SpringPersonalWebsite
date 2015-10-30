@@ -61,7 +61,7 @@ public class WebUserService {
 		WebUser user = findOne(id);
 		List<ArticleCategory> articleCategories= articleCategoryRepository.findByWebUser(user);
 		for(ArticleCategory articleCategory : articleCategories) {
-			List<Article> articles = articleRepository.findByArticleCategory(articleCategory, new PageRequest(0, 10, Direction.DESC, "publishDate"));
+			List<Article> articles = articleRepository.findByArticleCategory(articleCategory, new PageRequest(0, 30, Direction.DESC, "publishDate"));
 			articleCategory.setArticles(articles);
 		}
 		user.setArticleCategories(articleCategories);
@@ -113,6 +113,15 @@ public class WebUserService {
 
 	public WebUser findOne(String username) {
 		return webUserRepository.findByName(username);
+	}
+
+
+	
+
+
+	public List<WebUser> findUsersByRoles(List<Role> roles) {
+		
+		return webUserRepository.findByRoles(roles);
 	}
 	
 	

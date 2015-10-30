@@ -13,4 +13,6 @@ public interface ArticleRepository extends JpaRepository<Article, Integer>{
 
 	List<Article> findByArticleCategory(ArticleCategory articleCategory, Pageable pageable);
 
+	List<Article> findByArticleCategory(ArticleCategory ac);
+
 }

@@ -53,7 +53,7 @@ public class ArticleCategoryService {
 		
 		return articleCategoryRepository.findAll();
 	}
-	
+
 	
 
 

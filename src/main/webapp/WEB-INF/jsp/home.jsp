@@ -53,25 +53,33 @@
 		<div class="container">
 			<nav class="blog-nav">
 				<a class="blog-nav-item  ${current == 'index' ? 'active' : '' }" href="/">Home</a> 
-				<a class="blog-nav-item  ${current == 'home' ? 'active' : '' }" href="/home.html">Home new</a>
+				<a class="blog-nav-item  ${current == 'home' ? 'active' : '' }" href="/home.html">Home new</a> 
 				
 				<a class="blog-nav-item  ${current == 'projects' ? 'active' : '' }" href="/projects.html">Projects</a> 
 				
 				<a class="blog-nav-item  ${current == 'articles' ? 'active' : '' }" href="/articles.html">Articles</a>
+				<a class="blog-nav-item  ${current == 'rss-feed' ? 'active' : '' }" href="/rss-feed.html">Rss Feed</a>
 				
 				<security:authorize access="! isAuthenticated()">
 					<a class="blog-nav-item ${current == 'login' ? 'active' : '' }" href='<spring:url value="/login.html"/>'>Login</a>
+					<a class="blog-nav-item ${current == 'user-register' ? 'active' : '' }" href='<spring:url value="/register.html"/>'>Register</a>
 				</security:authorize>
 				
 				<security:authorize access="isAuthenticated()">
-					<a class="blog-nav-item ${current == 'account-detail' ? 'active' : '' }" href='<spring:url value="/account.html"/>'>My RSS Feed</a>
 					<a class="blog-nav-item " href='<spring:url value="/logout.html"/>'>Logout</a>
+					
 				</security:authorize>
-				<a class="blog-nav-item ${current == 'user-register' ? 'active' : '' }" href='<spring:url value="/register.html"/>'>Register</a>
+				
+				
+				<security:authorize access="isAuthenticated()">
+				<a class="blog-nav-item ${current == 'account-detail' ? 'active' : '' }" href='<spring:url value="/account.html"/>'>My RSS Feed</a>	
+				<a class="blog-nav-item ${current == 'my-articles' ? 'active' : '' }" href='<spring:url value="/my-articles.html"/>'>My Articles</a>
+				<a class="blog-nav-item ${current == 'article-category' ? 'active' : '' }" href='<spring:url value="/article-category.html"/>'>Write Articles</a>
+				</security:authorize>
 				
 				<security:authorize access="hasRole('ROLE_ADMIN')"> 
 					<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a>
-					<a class="blog-nav-item ${current == 'article-category' ? 'active' : '' }" href='<spring:url value="/article-category.html"/>'>Add Article</a>
+					
 				</security:authorize>
 				
 				<a class="blog-nav-item" href="#">About</a>
@@ -85,7 +93,7 @@
       <!-- Jumbotron -->
       <div class="jumbotron marketing">
         <h1 id="need-you-white" class="white">Welcome !</h1>
-        <h3 class="white"> Self-study project for exploring awesome features in SpringMVC web programming.Post articles, Manage RSS Feed. Review the past and look forward to the future.</h3>
+        <h3 class="white"> My Self-study project for exploring awesome features in SpringMVC web programming.Post articles, Manage RSS Feed. Review the past and look forward to the future.</h3>
         <p><a class="btn btn-lg btn-success" href='<spring:url value="/register.html"/>' role="button">Get started today</a></p>
       </div>
 
@@ -105,7 +113,7 @@
         <div class="col-lg-4">
           <h2>More Projects</h2>
           <p>See my other projects.</p>
-          <p><a class="btn btn-primary" href="#" role="button">View details &raquo;</a></p>
+          <p><a class="btn btn-primary" href="/projects.html" role="button">View details &raquo;</a></p>
         </div>
       </div>
      </div> 

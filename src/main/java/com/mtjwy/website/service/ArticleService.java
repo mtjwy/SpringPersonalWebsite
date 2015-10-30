@@ -60,6 +60,12 @@ public class ArticleService {
 		
 		return articleRepository.findByArticleCategory(ac, new PageRequest(0, 20, Direction.DESC, "publishDate"));
 	}
+
+	
+
+	
+
+	
 	
 	
 

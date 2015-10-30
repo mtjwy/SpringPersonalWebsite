@@ -2,17 +2,17 @@
 <%@ include file="../layout/taglib.jsp"%>
 
 <div class="blog-header">
-			<h1 class="blog-title">All Articles</h1>
-			<p class="lead blog-description">Sorted by published date.</p>
+			<h1 class="blog-title">My Articles</h1>
+			<p class="lead blog-description"><c:out value="${user.name}" /></p>
 		</div>
 
 <div class="col-sm-8 blog-main">
 
 
 	   
-<c:forEach items="${user.articleCategories}" var="catg">
 
-<c:forEach items="${catg.articles}" var="article">
+<c:forEach items="${user.articleCategories}" var="articleCategory">
+	<c:forEach items="${articleCategory.articles}" var="article">
 
 	
 <div class=" well">
@@ -26,8 +26,9 @@
 </div>
 <!-- /.blog-post -->
 
+	</c:forEach>
 </c:forEach>
-</c:forEach>
+
 
 
 
