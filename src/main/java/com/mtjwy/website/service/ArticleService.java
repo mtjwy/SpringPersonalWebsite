@@ -2,6 +2,9 @@ package com.mtjwy.website.service;
 
 
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mtjwy.website.entity.Article;
 import com.mtjwy.website.entity.ArticleCategory;
-import com.mtjwy.website.entity.Item;
 import com.mtjwy.website.repository.ArticleCategoryRepository;
 import com.mtjwy.website.repository.ArticleRepository;
 
@@ -23,6 +25,12 @@ public class ArticleService {
 	
 	@Autowired
 	private ArticleRepository articleRepository;
+	
+	@Autowired
+	private RoleService roleService;
+	
+	@Autowired
+	private ArticleCategoryService articleCategoryService;
 	
 	@Autowired 
 	private ArticleCategoryRepository articleCategoryRepository;
@@ -59,6 +67,29 @@ public class ArticleService {
 	public List<Article> findByArticleCategory(ArticleCategory ac) {
 		
 		return articleRepository.findByArticleCategory(ac, new PageRequest(0, 20, Direction.DESC, "publishDate"));
+	}
+
+	public List<Article> findAdminArticles() {
+		String adminName = roleService.findAdminName();
+		return findArticlesByUserName(adminName);
+	}
+	
+	public List<Article> findArticlesByUserName(String name) {
+		List<ArticleCategory> categories = articleCategoryService.findByUserName(name);
+		List<Article> articles = new ArrayList<Article>();  
+		for (ArticleCategory c : categories) {
+			articles.addAll(articleRepository.findByArticleCategory(c));
+		}
+		Collections.sort(articles, new Comparator<Article>() {
+
+			public int compare(Article a1, Article a2) {
+				
+				return a2.getPublishDate().compareTo(a1.getPublishDate());//descending order
+			}
+			
+		});
+		
+		return articles;
 	}
 
 	

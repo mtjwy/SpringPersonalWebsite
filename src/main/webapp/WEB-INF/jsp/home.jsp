@@ -52,8 +52,7 @@
 	<div class="blog-masthead">
 		<div class="container">
 			<nav class="blog-nav">
-				<a class="blog-nav-item  ${current == 'index' ? 'active' : '' }" href="/">Home</a> 
-				<a class="blog-nav-item  ${current == 'home' ? 'active' : '' }" href="/home.html">Home new</a> 
+				<a class="blog-nav-item  ${current == 'home' ? 'active' : '' }" href="/">Home</a> 
 				
 				<a class="blog-nav-item  ${current == 'projects' ? 'active' : '' }" href="/projects.html">Projects</a> 
 				
@@ -82,7 +81,6 @@
 					
 				</security:authorize>
 				
-				<a class="blog-nav-item" href="#">About</a>
 			</nav>
 		</div>
 	</div>
@@ -93,7 +91,7 @@
       <!-- Jumbotron -->
       <div class="jumbotron marketing">
         <h1 id="need-you-white" class="white">Welcome !</h1>
-        <h3 class="white"> My Self-study project for exploring awesome features in SpringMVC web programming.Post articles, Manage RSS Feed. Review the past and look forward to the future.</h3>
+        <h3 class="white"> My self-study project for exploring awesome features in SpringMVC web programming.Post articles, Manage RSS Feed. Review the past and look forward to the future.</h3>
         <p><a class="btn btn-lg btn-success" href='<spring:url value="/register.html"/>' role="button">Get started today</a></p>
       </div>
 
@@ -108,7 +106,7 @@
         <div class="col-lg-4">
           <h2>What This Website Can Do </h2>
           <p>Registered users can write and manage articles on this website. It also offers a RSS Feed Aggregation service. Click button bellow to see demo.</p>
-          <p><a class="btn btn-primary" href="#" role="button">See demo &raquo;</a></p>
+          <p><a class="btn btn-primary" href="https://youtu.be/0McW6pWclfE" target="_blank" role="button">See demo &raquo;</a></p>
        </div>
         <div class="col-lg-4">
           <h2>More Projects</h2>

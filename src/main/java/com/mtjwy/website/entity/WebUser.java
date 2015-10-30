@@ -41,7 +41,7 @@ public class WebUser {
 	@JoinTable
 	private List<Role> roles;
 	
-	@OneToMany(mappedBy="webUser")
+	@OneToMany(mappedBy="webUser", cascade=CascadeType.REMOVE)
 	private List<ArticleCategory> articleCategories;
 	
 	private boolean enabled;

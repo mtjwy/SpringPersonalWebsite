@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Article {
@@ -16,13 +17,13 @@ public class Article {
 	@GeneratedValue
 	private Integer id;
 	
-	
+	@Size(min=1, message="Name must be at least 1 character!")
 	private String title;
 	
 	@Column(length = 1000)
 	private String description;
 	
-	@Column(length = Integer.MAX_VALUE)
+	@Column(length = 10000)
 	private String content;
 	
 	@Column(name = "publish_date")

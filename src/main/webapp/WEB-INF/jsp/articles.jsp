@@ -3,16 +3,15 @@
 
 <div class="blog-header">
 			<h1 class="blog-title">@Y_W's Articles</h1>
-			<p class="lead blog-description">my articles</p>
+			<p class="lead blog-description">Sorted by published date</p>
 		</div>
 
 <div class="col-sm-8 blog-main">
 
 
 	   
-<c:forEach items="${user.articleCategories}" var="catg">
 
-<c:forEach items="${catg.articles}" var="article">
+<c:forEach items="${articles}" var="article">
 
 	
 <div class=" well">
@@ -26,7 +25,6 @@
 </div>
 <!-- /.blog-post -->
 
-</c:forEach>
 </c:forEach>
 
 

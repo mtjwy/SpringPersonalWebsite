@@ -20,6 +20,7 @@ import com.mtjwy.website.entity.Blog;
 import com.mtjwy.website.entity.WebUser;
 import com.mtjwy.website.service.ArticleCategoryService;
 import com.mtjwy.website.service.BlogService;
+import com.mtjwy.website.service.RoleService;
 import com.mtjwy.website.service.WebUserService;
 
 @Controller
@@ -32,6 +33,9 @@ public class WebUserController {
 	
 	@Autowired
 	private ArticleCategoryService articleCategoryService;
+	
+	@Autowired
+	private RoleService roleService;
 	
 	
 	
@@ -82,8 +86,9 @@ public class WebUserController {
 	
 	@RequestMapping("/rss-feed")
 	public String account(Model model) {
-		String name = "admin";
-		model.addAttribute("user", webUserService.findOneWithBlogs(name));
+		String adminName = roleService.findAdminName();
+		
+		model.addAttribute("user", webUserService.findOneWithBlogs(adminName));
 		return "rss-feed";
 	}
 	
@@ -118,7 +123,9 @@ public class WebUserController {
 	@RequestMapping(value="/article-category")
 	public String articleCategory(Model model, Principal principal) {
 		String name = principal.getName();
-		model.addAttribute("user", webUserService.findOneWithArticles(name));
+		WebUser user = webUserService.findOneWithArticles(name);
+		model.addAttribute("user", user);
+		model.addAttribute("categs", user.getArticleCategories());
 		return "article-category";	
 	}
 	

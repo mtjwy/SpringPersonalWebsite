@@ -31,6 +31,7 @@
 	</div>
 	
 	<div class="form-group">
+		<div class="col-sm-6"> </div>
 		<div class="col-sm-2">
 			<input type="submit" value="Save" class="btn btn-lg btn-primary"/>
 		</div>

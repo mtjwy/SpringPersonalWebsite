@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 
 <%@ include file="../layout/taglib.jsp"%>
 
@@ -16,40 +14,44 @@
 	<c:if test="${param.success eq true}">
 		<div class="alert alert-success">Registration successful!</div>
 	</c:if>
+	
 	<div class="form-group">
-		<label for="name" class="col-sm-2 control-label">Name:</label>
-		<div class="col-sm-10">
-			<form:input path="name" cssClass="form-control" />
+		<div class="col-sm-4 "></div>
+	
+		<div class="col-sm-6 ">
+			<form:input path="name" cssClass="form-control" placeholder="Name"/>
 			<form:errors path="name" />
 		</div>
+		
 	</div>
 	
 	<div class="form-group">
-		<label for="email" class="col-sm-2 control-label">Email:</label>
-		<div class="col-sm-10">
-			<form:input path="email" cssClass="form-control" />
+		<div class="col-sm-4 "></div>
+		<div class="col-sm-6">
+			<form:input path="email" cssClass="form-control" placeholder="Email"/>
 			<form:errors path="email" />
 		</div>
 	</div>
 	
 	<div class="form-group">
-		<label for="password" class="col-sm-2 control-label">Password:</label>
-		<div class="col-sm-10">
-			<form:password path="password" cssClass="form-control" />
+		<div class="col-sm-4 "></div>
+		<div class="col-sm-6">
+			<form:password path="password" cssClass="form-control" placeholder="Password"/>
 			<form:errors path="password" />
 		</div>
 	</div>
 	
 	<div class="form-group">
-		<label for="password" class="col-sm-2 control-label">Confirm password:</label>
-		<div class="col-sm-10">
-			<input type="password" name="password_confirm" id="password_confirm" class="form-control" />
+		<div class="col-sm-4 "></div>
+		<div class="col-sm-6">
+			<input type="password" name="password_confirm" id="password_confirm" class="form-control" placeholder="Retype password"/>
 		</div>
 	</div>
 	
 	<div class="form-group">
-		<div class="col-sm-2">
-			<input type="submit" value="Save" class="btn btn-lg btn-primary"/>
+		<div class="col-sm-6 "></div>
+		<div >
+			<input type="submit" value="Submit" class="btn btn-lg btn-primary"/>
 		</div>
 	</div>
 	

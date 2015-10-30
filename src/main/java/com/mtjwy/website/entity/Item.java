@@ -24,7 +24,7 @@ public class Item {
 	private String link;
 
 	
-	@Column(length = Integer.MAX_VALUE)
+	@Column(length = 10000)
 	private String description;
 
 	@Column(name = "publish_date")

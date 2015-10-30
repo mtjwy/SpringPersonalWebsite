@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.mtjwy.web</groupId>
-  <artifactId>SpringPersonalWebsite</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  
-  <!-- Shared version number properties -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.mtjwy.web</groupId>
+	<artifactId>SpringPersonalWebsite</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<!-- Shared version number properties -->
 	<properties>
 		<org.springframework.version>4.2.1.RELEASE</org.springframework.version>
 		<apache.tiles>3.0.5</apache.tiles>
@@ -156,7 +157,7 @@
 			<artifactId>javax.servlet.jsp-api</artifactId>
 			<version>2.2.1</version>
 			<scope>provided</scope>
-<!-- 			provided means this dependency won't package into war file when deployed -->
+			<!-- provided means this dependency won't package into war file when deployed -->
 		</dependency>
 
 		<dependency>
@@ -171,7 +172,7 @@
 			<version>5.0.1.Final</version>
 		</dependency>
 
-<!-- for hypersonic database -->
+		<!-- for hypersonic database -->
 		<dependency>
 			<groupId>org.hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>
@@ -231,7 +232,7 @@
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
-		
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -239,6 +240,13 @@
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.3.4.RC0</version>
+
+<!-- 				<configuration> -->
+<!-- 					<httpConnector> -->
+<!-- 						host>localhost</host -->
+<!-- 						<port>9999</port> -->
+<!-- 					</httpConnector> -->
+<!-- 				</configuration> -->
 			</plugin>
 
 
@@ -253,18 +261,18 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-framework-bom</artifactId>
-			<version>${org.springframework.version}</version>
-			<type>pom</type>
-			<scope>import</scope>
-		</dependency>
-		
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>${org.springframework.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
-	
+
 </project>

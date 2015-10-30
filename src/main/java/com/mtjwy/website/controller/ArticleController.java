@@ -2,6 +2,7 @@ package com.mtjwy.website.controller;
 
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -67,18 +68,12 @@ public class ArticleController {
 		return "redirect:/article-category.html";
 	}
 	
-//	@RequestMapping("/articles")
-//	public String articles(Model model) {
-//		model.addAttribute("articles", articleService.findLatestArticles());
-//		model.addAttribute("categs", articleCategoryService.findAll());
-//		return "articles";
-//	}
-	
 	@RequestMapping("/articles")
 	public String articles(Model model) {
 		
 		WebUser userAdmin = webUserService.findAdminWithArticles();
-		model.addAttribute("user", userAdmin);
+		List<Article> articles = articleService.findAdminArticles(); 
+		model.addAttribute("articles", articles);
 		model.addAttribute("categs", userAdmin.getArticleCategories());
 		return "articles";
 	}
@@ -86,8 +81,9 @@ public class ArticleController {
 	@RequestMapping("/my-articles")
 	public String articlesByUserId(Model model, Principal principal) {
 		String name = principal.getName();
+		List<Article> articles = articleService.findArticlesByUserName(name);
 		WebUser user = webUserService.findOneWithArticles(name);
-		model.addAttribute("user", user);
+		model.addAttribute("articles", articles);
 		model.addAttribute("categs", user.getArticleCategories());
 		return "my-articles";
 	}

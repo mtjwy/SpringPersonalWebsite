@@ -2,13 +2,14 @@ package com.mtjwy.website.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.Size;
 
 @Entity
 public class ArticleCategory {
@@ -17,14 +18,14 @@ public class ArticleCategory {
 	@GeneratedValue
 	private Integer id;
 	
-	
+	@Size(min=1, message="Name must be at least 1 character!")
 	private String name;
 	
 	@ManyToOne
 	@JoinColumn(name="webuser_id")
 	private WebUser webUser;
 	
-	@OneToMany(mappedBy="articleCategory")
+	@OneToMany(mappedBy="articleCategory", cascade=CascadeType.REMOVE)
 	private List<Article> articles;
 
 	public Integer getId() {

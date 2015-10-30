@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <%@ include file="../layout/taglib.jsp"%>
 
@@ -46,7 +44,7 @@
 
 <br> <br>
 <!-- Nav tabs -->
-<ul class="nav nav-tabs" role="tablist">
+<ul class="nav nav-pills" role="tablist">
   	<c:forEach items="${user.articleCategories}" var="category">
   		<li ><a href="#category_${category.id}" data-toggle="tab">${category.name}</a></li>	
   	</c:forEach>
@@ -62,17 +60,18 @@
 	<p></p>
 	
 	<table class="table table-bordered table-hover table-striped">
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Publish date</th>
-			</tr>	
-		</thead>
+		<colgroup>
+       		<col span="1" style="width: 55%;">
+       		<col span="1" style="width: 20%;">	
+       		<col span="1" style="width: 10%;">
+       		<col span="1" style="width: 15%;">
+    	</colgroup>
+		
 		<tbody>
 			<c:forEach items="${category.articles}" var="article">
 				<tr>
-					<td>${article.title}</td>
-					<td>${article.publishDate}</td>
+					<td><a href="/article/${article.id }.html">${article.title}</a></td>
+					<td><fmt:formatDate type="both"  value="${article.publishDate}" /></td>
 					
 					<td>
 					<a href='<spring:url value="/edit/${article.id }.html"/>' class="btn btn-warning"> edit</a>
@@ -119,7 +118,7 @@
 <script type="text/javascript">
 	
 		$(document).ready(function(){
-			$('.nav-tabs a:first').tab('show'); // Select first tab
+			$('.nav-pills a:first').tab('show'); // Select first tab
 		});
 		
 		$('.triggerRemove').click(function(e) {

@@ -5,7 +5,7 @@
 			<h1 class="blog-title">${article.title }</h1>
 			<p class="lead blog-description"><fmt:formatDate value="${article.publishDate}" pattern="yyyy-MM-dd"/>
 			&nbsp &nbsp &nbsp
-			Category: <a href="#">${article.articleCategory.name}</a>
+			Category: <a href="/articleCategory/${article.articleCategory.id }.html">${article.articleCategory.name}</a>
 			</p>
 		</div>
 <div class="col-sm-8 blog-main">

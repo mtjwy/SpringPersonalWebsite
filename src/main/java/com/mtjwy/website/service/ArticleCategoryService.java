@@ -24,6 +24,9 @@ public class ArticleCategoryService {
 	
 	@Autowired
 	WebUserRepository webUserRepository;
+	
+	@Autowired
+	WebUserService webUserService;
 
 	public ArticleCategory findByName(String name) {
 		
@@ -52,6 +55,11 @@ public class ArticleCategoryService {
 	public List<ArticleCategory> findAll() {
 		
 		return articleCategoryRepository.findAll();
+	}
+
+	public List<ArticleCategory> findByUserName(String adminName) {
+		WebUser user = webUserService.findOne(adminName);
+		return articleCategoryRepository.findByWebUser(user);
 	}
 
 	

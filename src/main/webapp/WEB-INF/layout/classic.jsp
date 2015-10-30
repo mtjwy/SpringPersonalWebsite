@@ -50,8 +50,8 @@
 	<div class="blog-masthead">
 		<div class="container">
 			<nav class="blog-nav">
-				<a class="blog-nav-item  ${current == 'index' ? 'active' : '' }" href="/">Home</a> 
-				<a class="blog-nav-item  ${current == 'home' ? 'active' : '' }" href="/home.html">Home new</a> 
+				<a class="blog-nav-item  ${current == 'home' ? 'active' : '' }" href="/">Home</a> 
+				
 				
 				<a class="blog-nav-item  ${current == 'projects' ? 'active' : '' }" href="/projects.html">Projects</a> 
 				
@@ -80,7 +80,6 @@
 					<a class="blog-nav-item ${current == 'users' ? 'active' : '' }" href='<spring:url value="/users.html"/>'>Users</a>
 				</security:authorize>
 				
-				<a class="blog-nav-item" href="#">About</a>
 			</nav>
 		</div>
 	</div>

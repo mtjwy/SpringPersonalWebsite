@@ -10,9 +10,7 @@
 
 
 	   
-
-<c:forEach items="${user.articleCategories}" var="articleCategory">
-	<c:forEach items="${articleCategory.articles}" var="article">
+<c:forEach items="${articles}" var="article">
 
 	
 <div class=" well">
@@ -26,7 +24,6 @@
 </div>
 <!-- /.blog-post -->
 
-	</c:forEach>
 </c:forEach>
 
 

@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 
 <%@ include file="../layout/taglib.jsp"%>
 
@@ -34,6 +32,7 @@
 	</div>
 	
 	<div class="form-group">
+		<div class="col-sm-4"> </div>
 		<div class="col-sm-2">
 			<input type="submit" value="Save" class="btn btn-lg btn-primary"/>
 		</div>
