@@ -45,6 +45,9 @@ public class WebUserService {
 	@Autowired
 	private ItemRepository itemRepository;
 	
+	@Autowired
+	private RoleService roleService;
+	
 	
 	public List<WebUser> findAll() {
 		return webUserRepository.findAll();
@@ -71,6 +74,11 @@ public class WebUserService {
 	public WebUser findOneWithArticles(String name) {
 		WebUser user = webUserRepository.findByName(name);
 		return findOneWithArticles(user.getId());
+	}
+	
+	public WebUser findAdminWithArticles() {
+		String adminName = roleService.findAdminName();
+		return findOneWithArticles(adminName);
 	}
 
 
@@ -123,6 +131,9 @@ public class WebUserService {
 		
 		return webUserRepository.findByRoles(roles);
 	}
+
+
+	
 	
 	
 

@@ -30,8 +30,7 @@ public class ArticleController {
 	@Autowired
 	private WebUserService webUserService;
 	
-	@Autowired
-	private RoleService roleService;
+	
 	
 	
 	@ModelAttribute("new-article")
@@ -77,17 +76,19 @@ public class ArticleController {
 	
 	@RequestMapping("/articles")
 	public String articles(Model model) {
-		String adminName = roleService.findAdminName();
-		WebUser user = webUserService.findOneWithArticles(adminName);
-		model.addAttribute("user", user);
-		model.addAttribute("categs", user.getArticleCategories());
+		
+		WebUser userAdmin = webUserService.findAdminWithArticles();
+		model.addAttribute("user", userAdmin);
+		model.addAttribute("categs", userAdmin.getArticleCategories());
 		return "articles";
 	}
 	
 	@RequestMapping("/my-articles")
 	public String articlesByUserId(Model model, Principal principal) {
 		String name = principal.getName();
-		model.addAttribute("user", webUserService.findOneWithArticles(name));
+		WebUser user = webUserService.findOneWithArticles(name);
+		model.addAttribute("user", user);
+		model.addAttribute("categs", user.getArticleCategories());
 		return "my-articles";
 	}
 	
@@ -95,7 +96,8 @@ public class ArticleController {
 	@RequestMapping("/article/{id}")
 	public String showArticle(Model model, @PathVariable int id) {
 		model.addAttribute("article", articleService.findOne(id));
-		model.addAttribute("categs", articleCategoryService.findAll());
+		WebUser userAdmin = webUserService.findAdminWithArticles();
+		model.addAttribute("categs", userAdmin.getArticleCategories());
 		return "article";
 	}
 	
@@ -103,7 +105,8 @@ public class ArticleController {
 	@RequestMapping("/articleCategory/{id}")
 	public String showArticlesByCategory(Model model, @PathVariable int id) {
 		model.addAttribute("category", articleCategoryService.findOneWithArticles(id));
-		model.addAttribute("categs", articleCategoryService.findAll());
+		WebUser userAdmin = webUserService.findAdminWithArticles();
+		model.addAttribute("categs", userAdmin.getArticleCategories());
 		return "category-articles";
 	}
 	

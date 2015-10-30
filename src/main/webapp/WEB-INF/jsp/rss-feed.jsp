@@ -4,7 +4,7 @@
 
 
 <div class="blog-header">
-			<h2 class="blog-title"><c:out value="${user.name}" />'s RSS Feed</h2>
+			<h2 class="blog-title">@Y_W's RSS Feed</h2>
 </div>
 
 

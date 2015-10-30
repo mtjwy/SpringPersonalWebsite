@@ -2,8 +2,8 @@
 <%@ include file="../layout/taglib.jsp"%>
 
 <div class="blog-header">
-			<h1 class="blog-title">All Articles</h1>
-			<p class="lead blog-description">Sorted by published date.</p>
+			<h1 class="blog-title">@Y_W's Articles</h1>
+			<p class="lead blog-description">my articles</p>
 		</div>
 
 <div class="col-sm-8 blog-main">
