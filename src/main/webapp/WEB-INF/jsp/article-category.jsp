@@ -46,7 +46,7 @@
 <!-- Nav tabs -->
 <ul class="nav nav-pills" role="tablist">
   	<c:forEach items="${user.articleCategories}" var="category">
-  		<li ><a href="#category_${category.id}" data-toggle="tab">${category.name}</a></li>	
+  		<li ><a href="#category_${category.id}" data-toggle="tab"><c:out value="${category.name}" /></a></li>	
   	</c:forEach>
 </ul>
 
@@ -70,7 +70,7 @@
 		<tbody>
 			<c:forEach items="${category.articles}" var="article">
 				<tr>
-					<td><a href="/article/${article.id }.html">${article.title}</a></td>
+					<td><a href="/article/${article.id }.html"><c:out value="${article.title}" /></a></td>
 					<td><fmt:formatDate type="both"  value="${article.publishDate}" /></td>
 					
 					<td>

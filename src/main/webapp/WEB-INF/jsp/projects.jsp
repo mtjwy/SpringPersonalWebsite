@@ -19,7 +19,7 @@
   <li>Source code: <a href="https://github.com/mtjwy/SpringPersonalWebsite" target="_blank">https://github.com/mtjwy/SpringPersonalWebsite</a></li>
   <li>It&rsquo;s also the source code of this website.</li>
   <li>Year: October, 2015</li>
-  <li>SpringPersonalWebsite is a clean-design personal website implemented with Spring MVC. This website also provides a RSS Feed Aggregation service for registered users. <a href="https://mtjwy.com">https://mtjwy.com</a>.</li>
+  <li>SpringPersonalWebsite is a clean-design personal website implemented with Spring MVC. This website also provides a RSS Feed Aggregation service for registered users. <a href="https://yuwu.herokuapp.com" target="_blank">https://yuwu.herokuapp.com</a>.</li>
   <li>Technology: Spring MVC/JPA + Hibernate + HyperSQL DataBase + Bootstrap + JQuery + JAXB</li>
 </ul>
 
@@ -62,30 +62,27 @@
           <img class="first-slide" src="/resources/images/game.png" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Published Android Game On Google Play</h1>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <h1>Android Game On Google Play</h1>
+              <p><a class="btn btn-lg btn-primary" href="https://play.google.com/store/apps/details?id=com.lamaryw.InsectSmasher" target="_blank" role="button">Learn more</a></p>
             </div>
           </div>
         </div>
         
         
         <div class="item">
-          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+          <img class="second-slide" src="/resources/images/springwebsite.png" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+              <h1>Entity Diagram of This Website</h1>
+              <p><a class="btn btn-lg btn-primary" href="https://yuwu.herokuapp.com" target="_blank" role="button">Home page</a></p>
             </div>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <img class="third-slide" src="/resources/images/smallworld.png" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>One more for good measure.</h1>
-              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+              <h1>Small World Connection</h1>
             </div>
           </div>
         </div>

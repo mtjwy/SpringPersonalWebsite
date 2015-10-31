@@ -96,11 +96,9 @@
 			
 			<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
 				<div class="sidebar-module sidebar-module-inset">
-					<h4>About</h4>
+					<h4>Be Happy</h4>
 					<p>
-						Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras
-						mattis consectetur purus sit amet fermentum. Aenean lacinia
-						bibendum nulla sed consectetur.
+						Stay hungry, stay foolish.
 					</p>
 				</div>
 				<div class="sidebar-module">
@@ -114,9 +112,9 @@
 				<div class="sidebar-module">
 					<h4>Elsewhere</h4>
 					<ol class="list-unstyled">
-						<li><a href="https://github.com/mtjwy">GitHub</a></li>
-						<li><a href="#">Twitter</a></li>
-						<li><a href="#">Facebook</a></li>
+						<li><a href="https://github.com/mtjwy" target="_blank">GitHub</a></li>
+						<li><a href="https://www.linkedin.com/in/yuwul" target="_blank">LinkedIn</a></li>
+						<li><a href="https://play.google.com/store/apps/details?id=com.lamaryw.InsectSmasher" target="_blank">Android game</a></li>
 					</ol>
 				</div>
 			</div>

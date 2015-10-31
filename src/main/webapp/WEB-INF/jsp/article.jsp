@@ -5,19 +5,19 @@
 			<h1 class="blog-title">${article.title }</h1>
 			<p class="lead blog-description"><fmt:formatDate value="${article.publishDate}" pattern="yyyy-MM-dd"/>
 			&nbsp &nbsp &nbsp
-			Category: <a href="/articleCategory/${article.articleCategory.id }.html">${article.articleCategory.name}</a>
+			Category: <a href="/articleCategory/${article.articleCategory.id }.html"><c:out value="${article.articleCategory.name}" /></a>
 			</p>
 		</div>
 <div class="col-sm-8 blog-main">
 		
 <div class="blog-post">
 	<p >
-		Description: &nbsp ${article.description}
+		Description: &nbsp <c:out value="${article.description}" />
 	</p>
 	<hr>
 	<div id="preview" class="preview-div" ></div>
 	
-	<textarea id="text-input" oninput="this.editor.update()" rows="30" style="display:none;">${article.content}</textarea>
+	<textarea id="text-input" oninput="this.editor.update()" rows="30" style="display:none;"><c:out value="${article.content}" /></textarea>
 	
 	
 	

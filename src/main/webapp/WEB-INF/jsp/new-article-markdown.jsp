@@ -8,6 +8,7 @@
 </div>
 
 <div class="col-xs-7">
+<div style="text-align:center">Category: <c:out value="${categ.name }" /></div>
 <form:form commandName="new-article" cssClass="form-horizontal" action="/${category_id}/new-article.html">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">Title:</label>

@@ -16,7 +16,6 @@ import com.mtjwy.website.entity.Article;
 import com.mtjwy.website.entity.WebUser;
 import com.mtjwy.website.service.ArticleCategoryService;
 import com.mtjwy.website.service.ArticleService;
-import com.mtjwy.website.service.RoleService;
 import com.mtjwy.website.service.WebUserService;
 
 @Controller
@@ -50,6 +49,7 @@ public class ArticleController {
 	
 	@RequestMapping("/{category_id}/new-article")
 	public String showNewArticle(@PathVariable int category_id, Model model) {
+		model.addAttribute("categ", articleCategoryService.findOne(category_id));
 		model.addAttribute("category_id", category_id);
 //		return "new-article";
 		

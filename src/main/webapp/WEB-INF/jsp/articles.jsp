@@ -15,13 +15,13 @@
 
 	
 <div class=" well">
-	<h2 ><a href="/article/${article.id }.html">${article.title}</a></h2>
+	<h2 ><a href="/article/${article.id }.html"><c:out value="${article.title}" /></a></h2>
 	<p class="blog-post-meta"> 
 		<fmt:formatDate value="${article.publishDate}" pattern="yyyy-MM-dd"/>
 		&nbsp &nbsp &nbsp
-		Category: <a href="/articleCategory/${article.articleCategory.id }.html">${article.articleCategory.name}</a>
+		Category: <a href="/articleCategory/${article.articleCategory.id }.html"><c:out value="${article.articleCategory.name}" /></a>
 	</p>
-	Summary: &nbsp ${article.description}	
+	Summary: &nbsp <c:out value="${article.description}" />	
 </div>
 <!-- /.blog-post -->
 

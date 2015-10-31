@@ -19,7 +19,7 @@
 	</p>
 
 	<p>
-		${article.content}
+		<c:out value="${article.content}" />
 	</p>
 	
 	</div>
